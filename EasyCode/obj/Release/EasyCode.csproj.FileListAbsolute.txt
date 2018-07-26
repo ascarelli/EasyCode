@@ -1,0 +1,9 @@
+C:\Users\477978551\Documents\Visual Studio 2015\Projects\EasyCode\bin\Release\EasyCode.exe.config
+C:\Users\477978551\Documents\Visual Studio 2015\Projects\EasyCode\bin\Release\EasyCode.exe
+C:\Users\477978551\Documents\Visual Studio 2015\Projects\EasyCode\bin\Release\EasyCode.pdb
+C:\Users\477978551\Documents\Visual Studio 2015\Projects\EasyCode\bin\Release\Microsoft.ReportViewer.WinForms.dll
+C:\Users\477978551\Documents\Visual Studio 2015\Projects\EasyCode\obj\Release\EasyCode.formProject.resources
+C:\Users\477978551\Documents\Visual Studio 2015\Projects\EasyCode\obj\Release\EasyCode.Properties.Resources.resources
+C:\Users\477978551\Documents\Visual Studio 2015\Projects\EasyCode\obj\Release\EasyCode.csproj.GenerateResource.Cache
+C:\Users\477978551\Documents\Visual Studio 2015\Projects\EasyCode\obj\Release\EasyCode.exe
+C:\Users\477978551\Documents\Visual Studio 2015\Projects\EasyCode\obj\Release\EasyCode.pdb
