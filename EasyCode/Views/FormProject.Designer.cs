@@ -29,160 +29,85 @@
         private void InitializeComponent()
         {
             this.btnSaveProject = new System.Windows.Forms.Button();
-            this.tabControlProject = new System.Windows.Forms.TabControl();
-            this.tabPageProject = new System.Windows.Forms.TabPage();
-            this.tabPageClass = new System.Windows.Forms.TabPage();
-            this.tabPageAttr = new System.Windows.Forms.TabPage();
-            this.txtProjectNameSpace = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtProjectNameSpace = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbxType = new System.Windows.Forms.ComboBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.cbxType = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dtgAttributes = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewLinkColumn1 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.dataGridViewLinkColumn2 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dtgClass = new System.Windows.Forms.DataGridView();
+            this.txtClass = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnAddClass = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tabControlProject.SuspendLayout();
-            this.tabPageProject.SuspendLayout();
-            this.tabPageClass.SuspendLayout();
-            this.tabPageAttr.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.ClassName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddClass = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.DeleteClass = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Attributes = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClassObjectType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgAttributes)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgClass)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSaveProject
             // 
-            this.btnSaveProject.Location = new System.Drawing.Point(638, 458);
+            this.btnSaveProject.BackColor = System.Drawing.Color.LightBlue;
+            this.btnSaveProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveProject.Location = new System.Drawing.Point(759, 12);
             this.btnSaveProject.Name = "btnSaveProject";
-            this.btnSaveProject.Size = new System.Drawing.Size(75, 42);
+            this.btnSaveProject.Size = new System.Drawing.Size(58, 40);
             this.btnSaveProject.TabIndex = 1;
             this.btnSaveProject.Text = "Save";
-            this.btnSaveProject.UseVisualStyleBackColor = true;
+            this.btnSaveProject.UseVisualStyleBackColor = false;
             this.btnSaveProject.Click += new System.EventHandler(this.btnSaveProject_Click);
-            // 
-            // tabControlProject
-            // 
-            this.tabControlProject.Controls.Add(this.tabPageProject);
-            this.tabControlProject.Controls.Add(this.tabPageClass);
-            this.tabControlProject.Controls.Add(this.tabPageAttr);
-            this.tabControlProject.Location = new System.Drawing.Point(13, 13);
-            this.tabControlProject.Name = "tabControlProject";
-            this.tabControlProject.SelectedIndex = 0;
-            this.tabControlProject.Size = new System.Drawing.Size(700, 443);
-            this.tabControlProject.TabIndex = 2;
-            // 
-            // tabPageProject
-            // 
-            this.tabPageProject.Controls.Add(this.label1);
-            this.tabPageProject.Controls.Add(this.txtProjectNameSpace);
-            this.tabPageProject.Location = new System.Drawing.Point(4, 22);
-            this.tabPageProject.Name = "tabPageProject";
-            this.tabPageProject.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageProject.Size = new System.Drawing.Size(692, 417);
-            this.tabPageProject.TabIndex = 0;
-            this.tabPageProject.Text = "Project";
-            this.tabPageProject.UseVisualStyleBackColor = true;
-            // 
-            // tabPageClass
-            // 
-            this.tabPageClass.Controls.Add(this.label5);
-            this.tabPageClass.Controls.Add(this.comboBox1);
-            this.tabPageClass.Controls.Add(this.button3);
-            this.tabPageClass.Controls.Add(this.dataGridView3);
-            this.tabPageClass.Controls.Add(this.button1);
-            this.tabPageClass.Controls.Add(this.dataGridView1);
-            this.tabPageClass.Controls.Add(this.label2);
-            this.tabPageClass.Controls.Add(this.textBox1);
-            this.tabPageClass.Location = new System.Drawing.Point(4, 22);
-            this.tabPageClass.Name = "tabPageClass";
-            this.tabPageClass.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageClass.Size = new System.Drawing.Size(692, 417);
-            this.tabPageClass.TabIndex = 1;
-            this.tabPageClass.Text = "Classes";
-            this.tabPageClass.UseVisualStyleBackColor = true;
-            // 
-            // tabPageAttr
-            // 
-            this.tabPageAttr.Controls.Add(this.button2);
-            this.tabPageAttr.Controls.Add(this.dataGridView2);
-            this.tabPageAttr.Controls.Add(this.label4);
-            this.tabPageAttr.Controls.Add(this.cbxType);
-            this.tabPageAttr.Controls.Add(this.checkBox1);
-            this.tabPageAttr.Controls.Add(this.label3);
-            this.tabPageAttr.Controls.Add(this.textBox2);
-            this.tabPageAttr.Location = new System.Drawing.Point(4, 22);
-            this.tabPageAttr.Name = "tabPageAttr";
-            this.tabPageAttr.Size = new System.Drawing.Size(692, 417);
-            this.tabPageAttr.TabIndex = 2;
-            this.tabPageAttr.Text = "Attributes";
-            this.tabPageAttr.UseVisualStyleBackColor = true;
-            // 
-            // txtProjectNameSpace
-            // 
-            this.txtProjectNameSpace.Location = new System.Drawing.Point(9, 49);
-            this.txtProjectNameSpace.Name = "txtProjectNameSpace";
-            this.txtProjectNameSpace.Size = new System.Drawing.Size(420, 20);
-            this.txtProjectNameSpace.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 33);
+            this.label1.Location = new System.Drawing.Point(17, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "NameSpace";
             // 
-            // label2
+            // txtProjectNameSpace
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Name";
+            this.txtProjectNameSpace.Location = new System.Drawing.Point(20, 36);
+            this.txtProjectNameSpace.Name = "txtProjectNameSpace";
+            this.txtProjectNameSpace.Size = new System.Drawing.Size(763, 20);
+            this.txtProjectNameSpace.TabIndex = 0;
             // 
-            // textBox1
+            // button2
             // 
-            this.textBox1.Location = new System.Drawing.Point(21, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(542, 20);
-            this.textBox1.TabIndex = 2;
+            this.button2.Location = new System.Drawing.Point(708, 24);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Add";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // label4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Nome";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(23, 33);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(286, 20);
-            this.textBox2.TabIndex = 4;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(519, 35);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(64, 17);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "Nullable";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(309, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Type";
             // 
             // cbxType
             // 
@@ -194,144 +119,278 @@
             "decimal",
             "double",
             "DateTime"});
-            this.cbxType.Location = new System.Drawing.Point(315, 33);
+            this.cbxType.Location = new System.Drawing.Point(312, 28);
             this.cbxType.Name = "cbxType";
             this.cbxType.Size = new System.Drawing.Size(189, 21);
             this.cbxType.TabIndex = 9;
             // 
-            // label4
+            // checkBox1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(312, 17);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Type";
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(516, 30);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(64, 17);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "Nullable";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // label3
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 70);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(652, 215);
-            this.dataGridView1.TabIndex = 4;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Nome";
             // 
-            // button1
+            // textBox2
             // 
-            this.button1.Location = new System.Drawing.Point(598, 40);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.textBox2.Location = new System.Drawing.Point(20, 28);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(286, 20);
+            this.textBox2.TabIndex = 4;
             // 
-            // dataGridView2
+            // groupBox1
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(23, 59);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(652, 229);
-            this.dataGridView2.TabIndex = 11;
+            this.groupBox1.Controls.Add(this.txtProjectNameSpace);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(13, 58);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(804, 68);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Projeto";
             // 
-            // button2
+            // groupBox2
             // 
-            this.button2.Location = new System.Drawing.Point(600, 32);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
+            this.groupBox2.Controls.Add(this.dtgAttributes);
+            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.checkBox1);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.cbxType);
+            this.groupBox2.Location = new System.Drawing.Point(13, 506);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(804, 275);
+            this.groupBox2.TabIndex = 14;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Atributos";
             // 
-            // dataGridView3
+            // dtgAttributes
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(21, 321);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(652, 81);
-            this.dataGridView3.TabIndex = 6;
+            this.dtgAttributes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgAttributes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewLinkColumn1,
+            this.dataGridViewLinkColumn2,
+            this.dataGridViewTextBoxColumn2});
+            this.dtgAttributes.Location = new System.Drawing.Point(20, 55);
+            this.dtgAttributes.MultiSelect = false;
+            this.dtgAttributes.Name = "dtgAttributes";
+            this.dtgAttributes.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dtgAttributes.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dtgAttributes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgAttributes.Size = new System.Drawing.Size(763, 214);
+            this.dtgAttributes.TabIndex = 10;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Nome";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewLinkColumn1
+            // 
+            this.dataGridViewLinkColumn1.HeaderText = "";
+            this.dataGridViewLinkColumn1.Name = "dataGridViewLinkColumn1";
+            this.dataGridViewLinkColumn1.Text = "Editar";
+            this.dataGridViewLinkColumn1.UseColumnTextForLinkValue = true;
+            // 
+            // dataGridViewLinkColumn2
+            // 
+            this.dataGridViewLinkColumn2.HeaderText = "";
+            this.dataGridViewLinkColumn2.Name = "dataGridViewLinkColumn2";
+            this.dataGridViewLinkColumn2.Text = "Deletar";
+            this.dataGridViewLinkColumn2.UseColumnTextForLinkValue = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ObjectType";
+            this.dataGridViewTextBoxColumn2.HeaderText = "ObjectType";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dtgClass);
+            this.groupBox3.Controls.Add(this.txtClass);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.btnAddClass);
+            this.groupBox3.Location = new System.Drawing.Point(13, 140);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(804, 354);
+            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Classe";
+            // 
+            // dtgClass
+            // 
+            this.dtgClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgClass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ClassName,
+            this.AddClass,
+            this.DeleteClass,
+            this.Attributes,
+            this.Id,
+            this.ClassObjectType});
+            this.dtgClass.Location = new System.Drawing.Point(20, 62);
+            this.dtgClass.MultiSelect = false;
+            this.dtgClass.Name = "dtgClass";
+            this.dtgClass.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dtgClass.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dtgClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgClass.Size = new System.Drawing.Size(763, 286);
+            this.dtgClass.TabIndex = 8;
+            this.dtgClass.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgClass_CellContentClick);
+            // 
+            // txtClass
+            // 
+            this.txtClass.Location = new System.Drawing.Point(20, 36);
+            this.txtClass.Name = "txtClass";
+            this.txtClass.Size = new System.Drawing.Size(432, 20);
+            this.txtClass.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Name";
+            // 
+            // btnAddClass
+            // 
+            this.btnAddClass.Location = new System.Drawing.Point(458, 34);
+            this.btnAddClass.Name = "btnAddClass";
+            this.btnAddClass.Size = new System.Drawing.Size(75, 23);
+            this.btnAddClass.TabIndex = 9;
+            this.btnAddClass.Text = "Add";
+            this.btnAddClass.UseVisualStyleBackColor = true;
+            this.btnAddClass.Click += new System.EventHandler(this.btnAddClass_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(534, 296);
+            this.button3.BackColor = System.Drawing.Color.Red;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(694, 12);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(138, 23);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Add Association";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Size = new System.Drawing.Size(59, 40);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "Sair";
+            this.button3.UseVisualStyleBackColor = false;
             // 
-            // comboBox1
+            // ClassName
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "0 .. *",
-            "0 .. 1",
-            "1 .. 0",
-            "1 .. 1",
-            "1 .. *",
-            "* .. 0",
-            "* .. 1"});
-            this.comboBox1.Location = new System.Drawing.Point(397, 296);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(131, 21);
-            this.comboBox1.TabIndex = 10;
+            this.ClassName.DataPropertyName = "Name";
+            this.ClassName.HeaderText = "Nome";
+            this.ClassName.Name = "ClassName";
+            this.ClassName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ClassName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // label5
+            // AddClass
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(333, 299);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Multiplicity:";
+            this.AddClass.HeaderText = "";
+            this.AddClass.Name = "AddClass";
+            this.AddClass.Text = "Editar";
+            this.AddClass.UseColumnTextForLinkValue = true;
+            // 
+            // DeleteClass
+            // 
+            this.DeleteClass.HeaderText = "";
+            this.DeleteClass.Name = "DeleteClass";
+            this.DeleteClass.Text = "Deletar";
+            this.DeleteClass.UseColumnTextForLinkValue = true;
+            // 
+            // Attributes
+            // 
+            this.Attributes.HeaderText = "";
+            this.Attributes.Name = "Attributes";
+            this.Attributes.Text = "Atributos";
+            this.Attributes.UseColumnTextForLinkValue = true;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
+            // ClassObjectType
+            // 
+            this.ClassObjectType.DataPropertyName = "ObjectType";
+            this.ClassObjectType.HeaderText = "ObjectType";
+            this.ClassObjectType.Name = "ClassObjectType";
+            this.ClassObjectType.Visible = false;
             // 
             // FormProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 510);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(833, 790);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnSaveProject);
-            this.Controls.Add(this.tabControlProject);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Name = "FormProject";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormProject";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Criar Projeto";
             this.Shown += new System.EventHandler(this.FormProject_Shown);
-            this.tabControlProject.ResumeLayout(false);
-            this.tabPageProject.ResumeLayout(false);
-            this.tabPageProject.PerformLayout();
-            this.tabPageClass.ResumeLayout(false);
-            this.tabPageClass.PerformLayout();
-            this.tabPageAttr.ResumeLayout(false);
-            this.tabPageAttr.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgAttributes)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgClass)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Button btnSaveProject;
-        private System.Windows.Forms.TabControl tabControlProject;
-        private System.Windows.Forms.TabPage tabPageProject;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtProjectNameSpace;
-        private System.Windows.Forms.TabPage tabPageClass;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TabPage tabPageAttr;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbxType;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dtgClass;
+        private System.Windows.Forms.TextBox txtClass;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.Button btnAddClass;
+        private System.Windows.Forms.DataGridView dtgAttributes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewLinkColumn1;
+        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewLinkColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClassName;
+        private System.Windows.Forms.DataGridViewLinkColumn AddClass;
+        private System.Windows.Forms.DataGridViewLinkColumn DeleteClass;
+        private System.Windows.Forms.DataGridViewLinkColumn Attributes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClassObjectType;
     }
 }

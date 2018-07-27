@@ -14,6 +14,8 @@ namespace EasyCode.Views
 {
     public partial class FormProject : Form
     {
+        private List<ProjectClass> _ProjectClasses = new List<ProjectClass>();
+        private string _OpGridClass = "";
         public FormProject()
         {
             InitializeComponent();
@@ -31,6 +33,29 @@ namespace EasyCode.Views
         private void FormProject_Shown(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAddClass_Click(object sender, EventArgs e)
+        {
+            ProjectClass projectClass = new ProjectClass();
+            projectClass.Name = txtClass.Text;
+
+            var projectClasses = dtgClass.DataSource as List<ProjectClass>;
+            if (projectClasses == null)
+                projectClasses = new List<ProjectClass>();
+
+            if (projectClasses.Any(x => x.Name.ToUpper().Trim() == projectClass.Name.ToUpper().Trim()))
+                MessageBox.Show("Classe já adicionada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+                projectClasses.Add(projectClass);
+
+            dtgClass.DataSource = new List<ProjectClass>();
+            dtgClass.DataSource = projectClasses;
+        }
+
+        private void dtgClass_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string idClass = dtgClass.Rows[e.RowIndex].Cells["Id"].Value?.ToString();
         }
     }
 }
