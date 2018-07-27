@@ -46,16 +46,16 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dtgClass = new System.Windows.Forms.DataGridView();
-            this.txtClass = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnAddClass = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.ClassName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddClass = new System.Windows.Forms.DataGridViewLinkColumn();
             this.DeleteClass = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Attributes = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClassObjectType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtClass = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnAddClass = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAttributes)).BeginInit();
@@ -256,43 +256,6 @@
             this.dtgClass.TabIndex = 8;
             this.dtgClass.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgClass_CellContentClick);
             // 
-            // txtClass
-            // 
-            this.txtClass.Location = new System.Drawing.Point(20, 36);
-            this.txtClass.Name = "txtClass";
-            this.txtClass.Size = new System.Drawing.Size(432, 20);
-            this.txtClass.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Name";
-            // 
-            // btnAddClass
-            // 
-            this.btnAddClass.Location = new System.Drawing.Point(458, 34);
-            this.btnAddClass.Name = "btnAddClass";
-            this.btnAddClass.Size = new System.Drawing.Size(75, 23);
-            this.btnAddClass.TabIndex = 9;
-            this.btnAddClass.Text = "Add";
-            this.btnAddClass.UseVisualStyleBackColor = true;
-            this.btnAddClass.Click += new System.EventHandler(this.btnAddClass_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Red;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(694, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(59, 40);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Sair";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
             // ClassName
             // 
             this.ClassName.DataPropertyName = "Name";
@@ -335,6 +298,43 @@
             this.ClassObjectType.HeaderText = "ObjectType";
             this.ClassObjectType.Name = "ClassObjectType";
             this.ClassObjectType.Visible = false;
+            // 
+            // txtClass
+            // 
+            this.txtClass.Location = new System.Drawing.Point(20, 36);
+            this.txtClass.Name = "txtClass";
+            this.txtClass.Size = new System.Drawing.Size(432, 20);
+            this.txtClass.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Name";
+            // 
+            // btnAddClass
+            // 
+            this.btnAddClass.Location = new System.Drawing.Point(458, 34);
+            this.btnAddClass.Name = "btnAddClass";
+            this.btnAddClass.Size = new System.Drawing.Size(75, 23);
+            this.btnAddClass.TabIndex = 9;
+            this.btnAddClass.Text = "Add";
+            this.btnAddClass.UseVisualStyleBackColor = true;
+            this.btnAddClass.Click += new System.EventHandler(this.btnAddClass_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Red;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(694, 12);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(59, 40);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "Sair";
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // FormProject
             // 

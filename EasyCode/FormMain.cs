@@ -28,6 +28,11 @@ namespace EasyCode
             var frm = new FormSolution();
             frm.Show();
         }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 
