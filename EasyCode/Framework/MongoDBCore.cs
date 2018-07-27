@@ -9,7 +9,7 @@ namespace EasyCode.Framework
 {
     public class MongoDBCore
     {
-        private IMongoDatabase _MongoDatabase;
+        private readonly IMongoDatabase _MongoDatabase;
         public MongoDBCore()
         {
             _MongoDatabase = new MongoClient("mongodb://localhost").GetDatabase("local");
@@ -46,16 +46,22 @@ namespace EasyCode.Framework
             return documents;
         }
 
-        public MongoCollection<BsonDocument> create<T>(T prDocument)
+        public BsonDocument add<T>(T prDocument)
         {
-            var collectionName = typeof(T).Name;
-            IMongoCollection<BsonDocument> mCollection = _MongoDatabase.GetCollection<BsonDocument>(collectionName);
-            BsonDocument doc = prDocument.ToBsonDocument();
+            BsonDocument bDoc;
+            try
+            {
+                var collectionName = typeof(T).Name;
+                IMongoCollection<BsonDocument> mCollection = _MongoDatabase.GetCollection<BsonDocument>(collectionName);
+                bDoc = prDocument.ToBsonDocument();
+                mCollection.InsertOne(bDoc);
+            }
+            catch (System.Exception ex)
+            {
+                bDoc = null;
+            }
 
-            Project teste = new Project { NameSpace = "x", ObjectType = 0 };
-            mCollection.InsertOne(teste.ToBsonDocument());
-            return null;
+            return bDoc;
         }
-
     }
 }

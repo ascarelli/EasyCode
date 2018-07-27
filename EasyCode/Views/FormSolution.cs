@@ -28,29 +28,7 @@ namespace EasyCode.Views
         {
 
         }
-        //private void mockTreeView()
-        //{
-        //    for (int i = 0; i < 10; i++)
-        //    {
-        //        Project project = new Project();
-        //        project.NameSpace = "Prodesp.Gsnet.Framework.Extension " + i;
-
-        //        ProjectClass projectClass = new ProjectClass();
-        //        projectClass.Name = "ETL " + i;
-
-        //        Attribute attribute = new Attribute { Name = "Version " + i };
-        //        projectClass.Attributes.Add(attribute);
-
-        //        attribute = new Attribute { Name = "Project " + i };
-        //        projectClass.Attributes.Add(attribute);
-
-        //        attribute = new Attribute { Name = "Catalog " + i };
-        //        projectClass.Attributes.Add(attribute);
-
-        //        project.ProjectClasses.Add(projectClass);
-        //        Projects.Add(project);
-        //    }
-        //}
+  
 
 
         private void loadData()
@@ -67,12 +45,12 @@ namespace EasyCode.Views
                 foreach (var projectClass in project.ProjectClasses)
                 {
                     List<TreeNode> nodesAttr = new List<TreeNode>();
-                    foreach (var attr in projectClass.Attributes)
-                    {
-                        TreeNode treeNodeAttr = new TreeNode(attr.Name + "");
-                        treeNodeAttr.Tag = JsonConvert.SerializeObject(attr);
-                        nodesAttr.Add(treeNodeAttr);
-                    }
+                    //foreach (var attr in projectClass.Attributes)
+                    //{
+                    //    TreeNode treeNodeAttr = new TreeNode(attr.Name + "");
+                    //    treeNodeAttr.Tag = JsonConvert.SerializeObject(attr);
+                    //    nodesAttr.Add(treeNodeAttr);
+                    //}
 
                     TreeNode treeNodeClass = new TreeNode(projectClass.Name, nodesAttr.ToArray());
                     treeNodeClass.Tag = JsonConvert.SerializeObject(projectClass);
@@ -85,7 +63,7 @@ namespace EasyCode.Views
             }
 
             TreeNode treeNodeProjects = new TreeNode("Projects", nodesProjects.ToArray());
-            ObjectCode objectCode = new ObjectCode { ObjectType = (int)ObjectTypeEnum.ProjectHeader };
+            ObjectCode objectCode = new ObjectCode { ObjectType = (int)KDObjectType.ProjectHeader };
             treeNodeProjects.Tag = JsonConvert.SerializeObject(objectCode);
             treeViewProjects.Nodes.Add(treeNodeProjects);
             Cursor.Current = Cursors.Default;
@@ -102,15 +80,15 @@ namespace EasyCode.Views
 
                 switch (objectCode.ObjectType)
                 {
-                    case (int)ObjectTypeEnum.Project:
+                    case (int)KDObjectType.Project:
                         var projects = JsonConvert.DeserializeObject<Project>(node.Tag.ToString());
-                        this.decorateGridToClass(projects.ProjectClasses);
+                        this.decorateGridToClass(projects.ProjectClasses.ToList());
                         break;
-                    case (int)ObjectTypeEnum.Class:
+                    case (int)KDObjectType.Class:
                         var classes = JsonConvert.DeserializeObject<ProjectClass>(node.Tag.ToString());
-                        this.decorateGridToAttrs(classes.Attributes);
+                        //this.decorateGridToAttrs(classes.Attributes);
                         break;
-                    case (int)ObjectTypeEnum.Attr:
+                    case (int)KDObjectType.Attr:
                         break;
                     default:
 
@@ -168,24 +146,24 @@ namespace EasyCode.Views
             dtgOperations.DataSource = prClasses;
         }
 
-        private void decorateGridToAttrs(List<ProjectAttribute> prAttrs)
-        {
-            createControlsToGrid(new GridControls
-            {
-                DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn(),
-                Name = "Name",
-                Visible = true,
-                Width = 250
-            });
-            createControlsToGrid(new GridControls
-            {
-                DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn(),
-                Name = "ObjectType",
-                Visible = false,
-                Width = 100
-            });
-            dtgOperations.DataSource = prAttrs;
-        }
+        //private void decorateGridToAttrs(List<ProjectAttribute> prAttrs)
+        //{
+        //    createControlsToGrid(new GridControls
+        //    {
+        //        DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn(),
+        //        Name = "Name",
+        //        Visible = true,
+        //        Width = 250
+        //    });
+        //    createControlsToGrid(new GridControls
+        //    {
+        //        DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn(),
+        //        Name = "ObjectType",
+        //        Visible = false,
+        //        Width = 100
+        //    });
+        //    dtgOperations.DataSource = prAttrs;
+        //}
 
         private void createControlsToGrid(GridControls prGridControls)
         {

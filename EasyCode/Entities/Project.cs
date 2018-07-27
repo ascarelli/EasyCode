@@ -1,14 +1,11 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using System;
+using MongoDB.Bson.Serialization.IdGenerators;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EasyCode.Entities
 {
-    public enum ObjectTypeEnum
+    public enum KDObjectType
     {
         Project = 0,
         Class = 1,
@@ -21,13 +18,17 @@ namespace EasyCode.Entities
         public Project()
         {
             this.ProjectClasses = new List<ProjectClass>();
-            this.ObjectType =(int)ObjectTypeEnum.Project;
+            this.ObjectType =(int)KDObjectType.Project;
         }
 
+
+        [BsonId(IdGenerator = typeof(StringObjectIdGenerator))]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
+        public ObjectId _id { get; set; }
         public string NameSpace { get; set; }
         public int ObjectType { get; set; }
-        public List<ProjectClass> ProjectClasses { get; set; }
+
+        [BsonElement("ProjectClass")]
+        public IList<ProjectClass> ProjectClasses { get; set; }
     }
 }
