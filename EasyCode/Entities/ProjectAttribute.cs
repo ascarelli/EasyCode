@@ -19,10 +19,6 @@ namespace EasyCode.Entities
         {
             this.ObjectType = (int)KDObjectType.Attr;
         }
-
-        [BsonId(IdGenerator = typeof(StringObjectIdGenerator))]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public ObjectId _id { get; set; }
         public string Name { get; set; }
         public int Type { get; set; }
         public int Nullable { get; set; }

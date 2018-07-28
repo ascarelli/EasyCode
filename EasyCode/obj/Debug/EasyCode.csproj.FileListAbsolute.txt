@@ -59,3 +59,4 @@ C:\WorkSpace\meusProjetos\Lab-master\EasyCode\obj\Debug\EasyCode.Views.FormProje
 C:\WorkSpace\meusProjetos\Lab-master\EasyCode\obj\Debug\EasyCode.Views.FormRelationship.resources
 C:\WorkSpace\meusProjetos\Lab-master\EasyCode\obj\Debug\EasyCode.Views.FormSolution.resources
 C:\WorkSpace\meusProjetos\Lab-master\EasyCode\obj\Debug\EasyCode.csproj.GenerateResource.Cache
+C:\Workspace\Prodesp\Easy Code\EasyCode\obj\Debug\EasyCode.csprojResolveAssemblyReference.cache

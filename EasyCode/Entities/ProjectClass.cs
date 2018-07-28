@@ -10,14 +10,12 @@ namespace EasyCode.Entities
 
         public ProjectClass()
         {
-            //this.Attributes = new List<ProjectAttribute>();
+            this.Attributes = new List<ProjectAttribute>();
             this.ObjectType = (int)KDObjectType.Class;
         }
 
-     
-        public ObjectId _id { get; set; }
         public string Name { get; set; }
         public int ObjectType { get; set; }
-        //public List<ProjectAttribute> Attributes { get; set; }
+        public List<ProjectAttribute> Attributes { get; set; }
     }
 }

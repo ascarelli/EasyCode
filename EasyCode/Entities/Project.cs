@@ -1,7 +1,9 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.IdGenerators;
+using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 namespace EasyCode.Entities
 {
@@ -20,15 +22,9 @@ namespace EasyCode.Entities
             this.ProjectClasses = new List<ProjectClass>();
             this.ObjectType =(int)KDObjectType.Project;
         }
-
-
-        [BsonId(IdGenerator = typeof(StringObjectIdGenerator))]
-        [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId _id { get; set; }
         public string NameSpace { get; set; }
         public int ObjectType { get; set; }
-
-        [BsonElement("ProjectClass")]
         public IList<ProjectClass> ProjectClasses { get; set; }
     }
 }
