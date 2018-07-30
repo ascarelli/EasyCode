@@ -19,9 +19,6 @@ C:\WorkSpace\meusProjetos\Lab-master\EasyCodeTest\bin\Debug\MongoDB.Driver.Legac
 C:\WorkSpace\meusProjetos\Lab-master\EasyCodeTest\obj\Debug\EasyCodeTest.csprojResolveAssemblyReference.cache
 C:\WorkSpace\meusProjetos\Lab-master\EasyCodeTest\obj\Debug\EasyCodeTest.dll
 C:\WorkSpace\meusProjetos\Lab-master\EasyCodeTest\obj\Debug\EasyCodeTest.pdb
-C:\Workspace\Prodesp\Easy Code\EasyCodeTest\obj\Debug\EasyCodeTest.csprojResolveAssemblyReference.cache
-C:\Workspace\Prodesp\Easy Code\EasyCodeTest\obj\Debug\EasyCodeTest.dll
-C:\Workspace\Prodesp\Easy Code\EasyCodeTest\obj\Debug\EasyCodeTest.pdb
 C:\Workspace\Prodesp\Easy Code\EasyCodeTest\bin\Debug\EasyCodeTest.dll
 C:\Workspace\Prodesp\Easy Code\EasyCodeTest\bin\Debug\EasyCodeTest.pdb
 C:\Workspace\Prodesp\Easy Code\EasyCodeTest\bin\Debug\DnsClient.dll
@@ -40,3 +37,6 @@ C:\Workspace\Prodesp\Easy Code\EasyCodeTest\bin\Debug\MongoDB.Bson.xml
 C:\Workspace\Prodesp\Easy Code\EasyCodeTest\bin\Debug\MongoDB.Driver.xml
 C:\Workspace\Prodesp\Easy Code\EasyCodeTest\bin\Debug\MongoDB.Driver.Core.xml
 C:\Workspace\Prodesp\Easy Code\EasyCodeTest\bin\Debug\MongoDB.Driver.Legacy.xml
+C:\Workspace\Prodesp\Easy Code\EasyCodeTest\obj\Debug\EasyCodeTest.csprojResolveAssemblyReference.cache
+C:\Workspace\Prodesp\Easy Code\EasyCodeTest\obj\Debug\EasyCodeTest.dll
+C:\Workspace\Prodesp\Easy Code\EasyCodeTest\obj\Debug\EasyCodeTest.pdb

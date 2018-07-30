@@ -38,23 +38,12 @@
             this.txtAttrName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.grpAttr = new System.Windows.Forms.GroupBox();
-            this.btnAddAttr = new System.Windows.Forms.Button();
-            this.dtgAttributes = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dtgClass = new System.Windows.Forms.DataGridView();
-            this.txtClass = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnAddClass = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.txtPrecision = new System.Windows.Forms.TextBox();
-            this.lblPrecision = new System.Windows.Forms.Label();
             this.lblScale = new System.Windows.Forms.Label();
             this.txtScale = new System.Windows.Forms.TextBox();
-            this.ClassName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DeleteClass = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Attributes = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClassObjectType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblPrecision = new System.Windows.Forms.Label();
+            this.txtPrecision = new System.Windows.Forms.TextBox();
+            this.btnAddAttr = new System.Windows.Forms.Button();
+            this.dtgAttributes = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nullable = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +52,17 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecisionScale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dtgClass = new System.Windows.Forms.DataGridView();
+            this.ClassName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeleteClass = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Attributes = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClassObjectType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtClass = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnAddClass = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.grpAttr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAttributes)).BeginInit();
@@ -73,6 +73,7 @@
             // btnSaveProject
             // 
             this.btnSaveProject.BackColor = System.Drawing.Color.LightBlue;
+            this.btnSaveProject.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSaveProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveProject.Location = new System.Drawing.Point(759, 12);
             this.btnSaveProject.Name = "btnSaveProject";
@@ -180,6 +181,42 @@
             this.grpAttr.TabStop = false;
             this.grpAttr.Text = "Atributos";
             // 
+            // lblScale
+            // 
+            this.lblScale.AutoSize = true;
+            this.lblScale.Location = new System.Drawing.Point(632, 28);
+            this.lblScale.Name = "lblScale";
+            this.lblScale.Size = new System.Drawing.Size(34, 13);
+            this.lblScale.TabIndex = 14;
+            this.lblScale.Text = "Scale";
+            this.lblScale.Visible = false;
+            // 
+            // txtScale
+            // 
+            this.txtScale.Location = new System.Drawing.Point(635, 44);
+            this.txtScale.Name = "txtScale";
+            this.txtScale.Size = new System.Drawing.Size(44, 20);
+            this.txtScale.TabIndex = 13;
+            this.txtScale.Visible = false;
+            // 
+            // lblPrecision
+            // 
+            this.lblPrecision.AutoSize = true;
+            this.lblPrecision.Location = new System.Drawing.Point(583, 28);
+            this.lblPrecision.Name = "lblPrecision";
+            this.lblPrecision.Size = new System.Drawing.Size(50, 13);
+            this.lblPrecision.TabIndex = 12;
+            this.lblPrecision.Text = "Precision";
+            this.lblPrecision.Visible = false;
+            // 
+            // txtPrecision
+            // 
+            this.txtPrecision.Location = new System.Drawing.Point(586, 44);
+            this.txtPrecision.Name = "txtPrecision";
+            this.txtPrecision.Size = new System.Drawing.Size(43, 20);
+            this.txtPrecision.TabIndex = 11;
+            this.txtPrecision.Visible = false;
+            // 
             // btnAddAttr
             // 
             this.btnAddAttr.Image = global::EasyCode.Properties.Resources.if_list_add_22x22;
@@ -211,148 +248,6 @@
             this.dtgAttributes.Size = new System.Drawing.Size(763, 214);
             this.dtgAttributes.TabIndex = 10;
             this.dtgAttributes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgAttributes_CellContentClick);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dtgClass);
-            this.groupBox3.Controls.Add(this.txtClass);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.btnAddClass);
-            this.groupBox3.Location = new System.Drawing.Point(13, 140);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(804, 354);
-            this.groupBox3.TabIndex = 15;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Classe";
-            // 
-            // dtgClass
-            // 
-            this.dtgClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgClass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ClassName,
-            this.DeleteClass,
-            this.Attributes,
-            this.Id,
-            this.ClassObjectType});
-            this.dtgClass.Location = new System.Drawing.Point(20, 62);
-            this.dtgClass.MultiSelect = false;
-            this.dtgClass.Name = "dtgClass";
-            this.dtgClass.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dtgClass.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dtgClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgClass.Size = new System.Drawing.Size(763, 286);
-            this.dtgClass.TabIndex = 8;
-            this.dtgClass.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgClass_CellContentClick);
-            // 
-            // txtClass
-            // 
-            this.txtClass.Location = new System.Drawing.Point(20, 36);
-            this.txtClass.Name = "txtClass";
-            this.txtClass.Size = new System.Drawing.Size(511, 20);
-            this.txtClass.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Name";
-            // 
-            // btnAddClass
-            // 
-            this.btnAddClass.Image = global::EasyCode.Properties.Resources.if_list_add_22x22;
-            this.btnAddClass.Location = new System.Drawing.Point(740, 22);
-            this.btnAddClass.Margin = new System.Windows.Forms.Padding(0);
-            this.btnAddClass.Name = "btnAddClass";
-            this.btnAddClass.Size = new System.Drawing.Size(43, 37);
-            this.btnAddClass.TabIndex = 9;
-            this.btnAddClass.UseVisualStyleBackColor = true;
-            this.btnAddClass.Click += new System.EventHandler(this.btnAddClass_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Red;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(694, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(59, 40);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Sair";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // txtPrecision
-            // 
-            this.txtPrecision.Location = new System.Drawing.Point(586, 44);
-            this.txtPrecision.Name = "txtPrecision";
-            this.txtPrecision.Size = new System.Drawing.Size(43, 20);
-            this.txtPrecision.TabIndex = 11;
-            this.txtPrecision.Visible = false;
-            // 
-            // lblPrecision
-            // 
-            this.lblPrecision.AutoSize = true;
-            this.lblPrecision.Location = new System.Drawing.Point(583, 28);
-            this.lblPrecision.Name = "lblPrecision";
-            this.lblPrecision.Size = new System.Drawing.Size(50, 13);
-            this.lblPrecision.TabIndex = 12;
-            this.lblPrecision.Text = "Precision";
-            this.lblPrecision.Visible = false;
-            // 
-            // lblScale
-            // 
-            this.lblScale.AutoSize = true;
-            this.lblScale.Location = new System.Drawing.Point(632, 28);
-            this.lblScale.Name = "lblScale";
-            this.lblScale.Size = new System.Drawing.Size(34, 13);
-            this.lblScale.TabIndex = 14;
-            this.lblScale.Text = "Scale";
-            this.lblScale.Visible = false;
-            // 
-            // txtScale
-            // 
-            this.txtScale.Location = new System.Drawing.Point(635, 44);
-            this.txtScale.Name = "txtScale";
-            this.txtScale.Size = new System.Drawing.Size(44, 20);
-            this.txtScale.TabIndex = 13;
-            this.txtScale.Visible = false;
-            // 
-            // ClassName
-            // 
-            this.ClassName.DataPropertyName = "Name";
-            this.ClassName.HeaderText = "Nome";
-            this.ClassName.Name = "ClassName";
-            this.ClassName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ClassName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // DeleteClass
-            // 
-            this.DeleteClass.HeaderText = "";
-            this.DeleteClass.Name = "DeleteClass";
-            this.DeleteClass.Text = "Deletar";
-            this.DeleteClass.UseColumnTextForLinkValue = true;
-            // 
-            // Attributes
-            // 
-            this.Attributes.HeaderText = "";
-            this.Attributes.Name = "Attributes";
-            this.Attributes.Text = "Add Atributos";
-            this.Attributes.UseColumnTextForLinkValue = true;
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "_id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            // 
-            // ClassObjectType
-            // 
-            this.ClassObjectType.DataPropertyName = "ObjectType";
-            this.ClassObjectType.HeaderText = "ObjectType";
-            this.ClassObjectType.Name = "ClassObjectType";
-            this.ClassObjectType.Visible = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -408,13 +303,121 @@
             this._id.Name = "_id";
             this._id.Visible = false;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dtgClass);
+            this.groupBox3.Controls.Add(this.txtClass);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.btnAddClass);
+            this.groupBox3.Location = new System.Drawing.Point(13, 140);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(804, 354);
+            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Classe";
+            // 
+            // dtgClass
+            // 
+            this.dtgClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgClass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ClassName,
+            this.DeleteClass,
+            this.Attributes,
+            this.Id,
+            this.ClassObjectType});
+            this.dtgClass.Location = new System.Drawing.Point(20, 62);
+            this.dtgClass.MultiSelect = false;
+            this.dtgClass.Name = "dtgClass";
+            this.dtgClass.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dtgClass.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dtgClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgClass.Size = new System.Drawing.Size(763, 286);
+            this.dtgClass.TabIndex = 8;
+            this.dtgClass.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgClass_CellContentClick);
+            // 
+            // ClassName
+            // 
+            this.ClassName.DataPropertyName = "Name";
+            this.ClassName.HeaderText = "Nome";
+            this.ClassName.Name = "ClassName";
+            this.ClassName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ClassName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // DeleteClass
+            // 
+            this.DeleteClass.HeaderText = "";
+            this.DeleteClass.Name = "DeleteClass";
+            this.DeleteClass.Text = "Deletar";
+            this.DeleteClass.UseColumnTextForLinkValue = true;
+            // 
+            // Attributes
+            // 
+            this.Attributes.HeaderText = "";
+            this.Attributes.Name = "Attributes";
+            this.Attributes.Text = "Add Atributos";
+            this.Attributes.UseColumnTextForLinkValue = true;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "_id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
+            // ClassObjectType
+            // 
+            this.ClassObjectType.DataPropertyName = "ObjectType";
+            this.ClassObjectType.HeaderText = "ObjectType";
+            this.ClassObjectType.Name = "ClassObjectType";
+            this.ClassObjectType.Visible = false;
+            // 
+            // txtClass
+            // 
+            this.txtClass.Location = new System.Drawing.Point(20, 36);
+            this.txtClass.Name = "txtClass";
+            this.txtClass.Size = new System.Drawing.Size(511, 20);
+            this.txtClass.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Name";
+            // 
+            // btnAddClass
+            // 
+            this.btnAddClass.Image = global::EasyCode.Properties.Resources.if_list_add_22x22;
+            this.btnAddClass.Location = new System.Drawing.Point(740, 22);
+            this.btnAddClass.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAddClass.Name = "btnAddClass";
+            this.btnAddClass.Size = new System.Drawing.Size(43, 37);
+            this.btnAddClass.TabIndex = 9;
+            this.btnAddClass.UseVisualStyleBackColor = true;
+            this.btnAddClass.Click += new System.EventHandler(this.btnAddClass_Click);
+            // 
+            // btnSair
+            // 
+            this.btnSair.BackColor = System.Drawing.Color.Red;
+            this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSair.Location = new System.Drawing.Point(694, 12);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(59, 40);
+            this.btnSair.TabIndex = 16;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
             // FormProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(833, 803);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnSair);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnSaveProject);
             this.Controls.Add(this.grpAttr);
@@ -450,7 +453,7 @@
         private System.Windows.Forms.DataGridView dtgClass;
         private System.Windows.Forms.TextBox txtClass;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnAddClass;
         private System.Windows.Forms.DataGridView dtgAttributes;
         private System.Windows.Forms.Button btnAddAttr;

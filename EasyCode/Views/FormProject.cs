@@ -198,6 +198,11 @@ namespace EasyCode.Views
             txtScale.Clear();
             txtAttrName.Focus();
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 

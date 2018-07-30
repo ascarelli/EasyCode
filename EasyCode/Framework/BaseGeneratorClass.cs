@@ -9,38 +9,38 @@ namespace EasyCode.Framework
 {
     public class BaseGeneratorClass
     {
-        protected string aNamespace;
-        protected string aBoundedContext;
-        protected string aNameEntity;
-        protected string aSchema;
+        protected string _Namespace;
+        protected string _BoundedContext;
+        protected string _NameEntity;
+        protected string _Schema;
         protected List<ProjectAttribute> _Attrs;
-        protected string aCodigo;
+        protected string _Codigo;
 
         public BaseGeneratorClass()
         {
-            aNamespace = string.Empty;
-            aBoundedContext = string.Empty;
-            aNameEntity = string.Empty;
-            aSchema = string.Empty;
-            aCodigo = string.Empty;
+            _Namespace = string.Empty;
+            _BoundedContext = string.Empty;
+            _NameEntity = string.Empty;
+            _Schema = string.Empty;
+            _Codigo = string.Empty;
         }
         protected void removeLast(string prstChar)
         {
-            aCodigo = aCodigo.Substring(0, aCodigo.Length - 3);
+            _Codigo = _Codigo.Substring(0, _Codigo.Length - 3);
         }
         protected void addLine(string prstLine)
         {
-            aCodigo = aCodigo + prstLine + "\r\n";
+            _Codigo = _Codigo + prstLine + "\r\n";
         }
         protected void aplicarVariaveis()
         {
-            aCodigo = aCodigo.Replace("[Namespace]", aNamespace);
-            aCodigo = aCodigo.Replace("[BoundedContext]", aBoundedContext);
-            aCodigo = aCodigo.Replace("[NameEntity]", aNameEntity);
-            aCodigo = aCodigo.Replace("[NAMEENTITY]", aNameEntity.ToUpper());
-            aCodigo = aCodigo.Replace("[nameentity]", aNameEntity.ToLower());
-            aCodigo = aCodigo.Replace("[SCHEMA]", aSchema.ToUpper());
-            aCodigo = aCodigo.Replace("[NAMEMODULE]", aNameEntity.ToUpper());
+            _Codigo = _Codigo.Replace("[Namespace]", _Namespace);
+            _Codigo = _Codigo.Replace("[BoundedContext]", _BoundedContext);
+            _Codigo = _Codigo.Replace("[NameEntity]", _NameEntity);
+            _Codigo = _Codigo.Replace("[NAMEENTITY]", _NameEntity.ToUpper());
+            _Codigo = _Codigo.Replace("[nameentity]", _NameEntity.ToLower());
+            _Codigo = _Codigo.Replace("[SCHEMA]", _Schema.ToUpper());
+            _Codigo = _Codigo.Replace("[NAMEMODULE]", _NameEntity.ToUpper());
         }
         protected void gravarArquivo(string prLines, string prstPath, string prstNomeArquivo)
         {

@@ -36,6 +36,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnNewProject = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnGenareCode = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgOperations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -74,7 +75,7 @@
             this.dtgOperations.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dtgOperations.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.PaleGoldenrod;
             this.dtgOperations.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dtgOperations.Size = new System.Drawing.Size(630, 465);
+            this.dtgOperations.Size = new System.Drawing.Size(752, 465);
             this.dtgOperations.TabIndex = 2;
             // 
             // Edit
@@ -96,6 +97,7 @@
             // treeViewProjects
             // 
             this.treeViewProjects.BackColor = System.Drawing.Color.Black;
+            this.treeViewProjects.CheckBoxes = true;
             this.treeViewProjects.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeViewProjects.ForeColor = System.Drawing.Color.Lime;
             this.treeViewProjects.LineColor = System.Drawing.Color.Lime;
@@ -104,6 +106,7 @@
             this.treeViewProjects.Name = "treeViewProjects";
             this.treeViewProjects.Size = new System.Drawing.Size(293, 465);
             this.treeViewProjects.TabIndex = 5;
+            this.treeViewProjects.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewProjects_AfterCheck);
             this.treeViewProjects.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewProjects_AfterSelect);
             // 
             // textBox1
@@ -120,7 +123,7 @@
             this.btnNewProject.FlatAppearance.BorderSize = 0;
             this.btnNewProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewProject.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewProject.Location = new System.Drawing.Point(837, 17);
+            this.btnNewProject.Location = new System.Drawing.Point(959, 17);
             this.btnNewProject.Margin = new System.Windows.Forms.Padding(0);
             this.btnNewProject.Name = "btnNewProject";
             this.btnNewProject.Size = new System.Drawing.Size(105, 35);
@@ -141,16 +144,34 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dtgOperations);
-            this.splitContainer1.Size = new System.Drawing.Size(930, 465);
+            this.splitContainer1.Size = new System.Drawing.Size(1052, 465);
             this.splitContainer1.SplitterDistance = 296;
             this.splitContainer1.TabIndex = 8;
+            // 
+            // btnGenareCode
+            // 
+            this.btnGenareCode.BackColor = System.Drawing.Color.Black;
+            this.btnGenareCode.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.btnGenareCode.FlatAppearance.BorderSize = 0;
+            this.btnGenareCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenareCode.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenareCode.ForeColor = System.Drawing.Color.White;
+            this.btnGenareCode.Location = new System.Drawing.Point(838, 17);
+            this.btnGenareCode.Margin = new System.Windows.Forms.Padding(0);
+            this.btnGenareCode.Name = "btnGenareCode";
+            this.btnGenareCode.Size = new System.Drawing.Size(105, 35);
+            this.btnGenareCode.TabIndex = 9;
+            this.btnGenareCode.Text = "Gerar Código";
+            this.btnGenareCode.UseVisualStyleBackColor = false;
+            this.btnGenareCode.Click += new System.EventHandler(this.btnGenareCode_Click);
             // 
             // FormSolution
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(957, 528);
+            this.ClientSize = new System.Drawing.Size(1076, 528);
+            this.Controls.Add(this.btnGenareCode);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.btnNewProject);
             this.Controls.Add(this.textBox1);
@@ -178,5 +199,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnNewProject;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Button btnGenareCode;
     }
 }

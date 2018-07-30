@@ -9,10 +9,10 @@ namespace EasyCode.Entities
 {
     public enum KDObjectType
     {
-        Project = 0,
-        Class = 1,
-        Attr = 2,
-        ProjectHeader = 3
+        ProjectHeader = 0,
+        Project = 1,
+        Class = 2,
+        Attr = 3
     }
 
     public class Project

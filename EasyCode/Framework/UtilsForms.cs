@@ -5,10 +5,30 @@ using System;
 
 namespace EasyCode.Framework
 {
-    public static class UtilsForms
+    public class UtilsForms
     {
-   
-    }
+        public void CheckAllChildNodes(TreeNode treeNode, bool nodeChecked)
+        {
+            foreach (TreeNode node in treeNode.Nodes)
+            {
+                node.Checked = nodeChecked;
+                if (node.Nodes.Count > 0)
+                    this.CheckAllChildNodes(node, nodeChecked);
+            }
+        }
+
+        public bool HasCheckedChildNodes(TreeNode node)
+        {
+            if (node.Nodes.Count == 0) return false;
+            foreach (TreeNode childNode in node.Nodes)
+            {
+                if (childNode.Checked) return true;
+                // Recursively check the children of the current child node.
+                if (HasCheckedChildNodes(childNode)) return true;
+            }
+            return false;
+        }
+    }  
 
     public static class UtilsFormsGrid
     {

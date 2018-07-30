@@ -33,19 +33,6 @@ C:\Workspace\Prodesp\EasyCode\bin\Debug\MongoDB.Bson.xml
 C:\Workspace\Prodesp\EasyCode\bin\Debug\MongoDB.Driver.xml
 C:\Workspace\Prodesp\EasyCode\bin\Debug\MongoDB.Driver.Core.xml
 C:\Workspace\Prodesp\EasyCode\bin\Debug\MongoDB.Driver.Legacy.xml
-C:\Workspace\Prodesp\Easy Code\EasyCode\bin\Debug\EasyCode.exe.config
-C:\Workspace\Prodesp\Easy Code\EasyCode\obj\Debug\EasyCode.exe
-C:\Workspace\Prodesp\Easy Code\EasyCode\obj\Debug\EasyCode.pdb
-C:\Workspace\Prodesp\Easy Code\EasyCode\bin\Debug\EasyCode.exe
-C:\Workspace\Prodesp\Easy Code\EasyCode\bin\Debug\EasyCode.pdb
-C:\Workspace\Prodesp\Easy Code\EasyCode\bin\Debug\Microsoft.ReportViewer.WinForms.dll
-C:\Workspace\Prodesp\Easy Code\EasyCode\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
-C:\Workspace\Prodesp\Easy Code\EasyCode\obj\Debug\EasyCode.formProject.resources
-C:\Workspace\Prodesp\Easy Code\EasyCode\obj\Debug\EasyCode.Properties.Resources.resources
-C:\Workspace\Prodesp\Easy Code\EasyCode\obj\Debug\EasyCode.Views.FormProject.resources
-C:\Workspace\Prodesp\Easy Code\EasyCode\obj\Debug\EasyCode.csproj.GenerateResource.Cache
-C:\Workspace\Prodesp\Easy Code\EasyCode\obj\Debug\EasyCode.Views.FormRelationship.resources
-C:\Workspace\Prodesp\Easy Code\EasyCode\obj\Debug\EasyCode.Views.FormSolution.resources
 C:\WorkSpace\meusProjetos\Lab-master\EasyCode\bin\Debug\EasyCode.exe.config
 C:\WorkSpace\meusProjetos\Lab-master\EasyCode\obj\Debug\EasyCode.exe
 C:\WorkSpace\meusProjetos\Lab-master\EasyCode\obj\Debug\EasyCode.pdb
@@ -59,4 +46,16 @@ C:\WorkSpace\meusProjetos\Lab-master\EasyCode\obj\Debug\EasyCode.Views.FormProje
 C:\WorkSpace\meusProjetos\Lab-master\EasyCode\obj\Debug\EasyCode.Views.FormRelationship.resources
 C:\WorkSpace\meusProjetos\Lab-master\EasyCode\obj\Debug\EasyCode.Views.FormSolution.resources
 C:\WorkSpace\meusProjetos\Lab-master\EasyCode\obj\Debug\EasyCode.csproj.GenerateResource.Cache
-C:\Workspace\Prodesp\Easy Code\EasyCode\obj\Debug\EasyCode.csprojResolveAssemblyReference.cache
+C:\Workspace\Prodesp\Easy Code\EasyCode\bin\Debug\EasyCode.exe.config
+C:\Workspace\Prodesp\Easy Code\EasyCode\bin\Debug\EasyCode.exe
+C:\Workspace\Prodesp\Easy Code\EasyCode\bin\Debug\EasyCode.pdb
+C:\Workspace\Prodesp\Easy Code\EasyCode\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Workspace\Prodesp\Easy Code\EasyCode\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Workspace\Prodesp\Easy Code\EasyCode\obj\Debug\EasyCode.formProject.resources
+C:\Workspace\Prodesp\Easy Code\EasyCode\obj\Debug\EasyCode.Properties.Resources.resources
+C:\Workspace\Prodesp\Easy Code\EasyCode\obj\Debug\EasyCode.Views.FormProject.resources
+C:\Workspace\Prodesp\Easy Code\EasyCode\obj\Debug\EasyCode.Views.FormRelationship.resources
+C:\Workspace\Prodesp\Easy Code\EasyCode\obj\Debug\EasyCode.Views.FormSolution.resources
+C:\Workspace\Prodesp\Easy Code\EasyCode\obj\Debug\EasyCode.csproj.GenerateResource.Cache
+C:\Workspace\Prodesp\Easy Code\EasyCode\obj\Debug\EasyCode.exe
+C:\Workspace\Prodesp\Easy Code\EasyCode\obj\Debug\EasyCode.pdb

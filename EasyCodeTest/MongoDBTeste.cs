@@ -87,7 +87,7 @@ namespace EasyCodeTest
             for (int i = 0; i < 1; i++)
             {
                 Project project = new Project();
-                project.NameSpace = "Prodesp.Gsnet.Framework.Extension " + i;
+                project.NameSpace = "Prodesp.Gsnet.Framework.Extensionxx " + i;
 
                 ProjectClass projectClass = new ProjectClass();
                 projectClass.Name = "ETL " + i;

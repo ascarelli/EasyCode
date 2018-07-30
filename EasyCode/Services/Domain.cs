@@ -27,7 +27,7 @@ namespace EasyCode.Services
 
         private void gerarSpecificationExist()
         {
-            aCodigo = string.Empty;
+            _Codigo = string.Empty;
             addLine("using [Namespace].Domain.Entities;");
             addLine("using [Namespace].Domain.Interfaces.Services;");
             addLine("using Validation.Domain.Interfaces.Validation;");
@@ -48,7 +48,7 @@ namespace EasyCode.Services
             addLine("        {");
             addLine("            bool lboIsSatisfied = true;");
             addLine(string.Empty);
-            addLine("            [NameEntity] l[NameEntity] = _[NameEntity]Service.getByID(pr[NameEntity]." + aNameEntity.ToUpper() + "ID);");
+            addLine("            [NameEntity] l[NameEntity] = _[NameEntity]Service.getByID(pr[NameEntity]." + _NameEntity.ToUpper() + "ID);");
             addLine(string.Empty);
 
             addLine("            if (l[NameEntity] == null)");
@@ -62,11 +62,11 @@ namespace EasyCode.Services
             addLine("    }");
             addLine("}");
             aplicarVariaveis();
-            gravarArquivo(aCodigo, "Domain\\Validation\\Specifiction", aNameEntity + "Exists" + ".cs");
+            gravarArquivo(_Codigo, "Domain\\Validation\\Specifiction", _NameEntity + "Exists" + ".cs");
         }
         private void gerarSpecificationHasProperties()
         {
-            aCodigo = string.Empty;
+            _Codigo = string.Empty;
             addLine("using [Namespace].Domain.Entities;");
             addLine("using Validation.Domain.Interfaces.Validation;");
             addLine(string.Empty);
@@ -102,12 +102,12 @@ namespace EasyCode.Services
             addLine("    }");
             addLine("}");
             aplicarVariaveis();
-            gravarArquivo(aCodigo, "Domain\\Validation\\Specifiction", aNameEntity + "HasValidProperties" + ".cs");
+            gravarArquivo(_Codigo, "Domain\\Validation\\Specifiction", _NameEntity + "HasValidProperties" + ".cs");
         }
         private void gerarRepository()
         {
             //Repository
-            aCodigo = string.Empty;
+            _Codigo = string.Empty;
             addLine("using System;");
             addLine("using [Namespace].Domain.Entities;");
             addLine("using System.Collections.Generic;");
@@ -123,11 +123,11 @@ namespace EasyCode.Services
             addLine("}");
             addLine(string.Empty);
             aplicarVariaveis();
-            gravarArquivo(aCodigo, "Domain", "I" + aNameEntity + "Repository.cs");
+            gravarArquivo(_Codigo, "Domain", "I" + _NameEntity + "Repository.cs");
         }
         private void gerarEntity()
         {
-            aCodigo = string.Empty;
+            _Codigo = string.Empty;
 
             //Entities
             addLine("namespace [Namespace].Domain.Entities");
@@ -139,7 +139,7 @@ namespace EasyCode.Services
             addLine("        }");
             addLine(string.Empty);
 
-            addLine("        public decimal " + aNameEntity.ToUpper() + "ID { get; set; }");
+            addLine("        public decimal " + _NameEntity.ToUpper() + "ID { get; set; }");
 
             foreach (var lAtributo in _Attrs)
             {
@@ -149,14 +149,14 @@ namespace EasyCode.Services
             addLine("    }");
             addLine("}");
             aplicarVariaveis();
-            gravarArquivo(aCodigo, "Domain", aNameEntity + ".cs");
+            gravarArquivo(_Codigo, "Domain", _NameEntity + ".cs");
         }
         private void gerarService()
         {
             
 
             //concrete
-            aCodigo = string.Empty;
+            _Codigo = string.Empty;
             addLine("using [Namespace].Domain.Entities;");
             addLine("using [Namespace].Domain.Interfaces.Repositories;");
             addLine("using [Namespace].Domain.Interfaces.Services;");
@@ -238,13 +238,13 @@ namespace EasyCode.Services
             addLine("    }");
             addLine("}");
             aplicarVariaveis();
-            gravarArquivo(aCodigo, "Domain", aNameEntity + "Service.cs");
+            gravarArquivo(_Codigo, "Domain", _NameEntity + "Service.cs");
         }
         private void gerarServiceInterface()
         {
             //Service 
             //interface
-            aCodigo = string.Empty;
+            _Codigo = string.Empty;
             addLine("using [Namespace].Domain.Entities;");
             addLine("using Validation.Domain.Validation;");
             addLine("using System.Collections.Generic;");
@@ -264,16 +264,15 @@ namespace EasyCode.Services
             addLine("}");
 
             aplicarVariaveis();
-            gravarArquivo(aCodigo, "Domain", "I" + aNameEntity + "Service.cs");
+            gravarArquivo(_Codigo, "Domain", "I" + _NameEntity + "Service.cs");
         }
         public void execute(string prstNamespace, string prstNomeClasse, string prstSchema, List<ProjectAttribute> prcoAtributos)
         {
-            aNamespace = prstNamespace;
-            aBoundedContext = string.Empty;
-            aNameEntity = prstNomeClasse;
+            _Namespace = prstNamespace;
+            _BoundedContext = string.Empty;
+            _NameEntity = prstNomeClasse;
             _Attrs = prcoAtributos;
-            aSchema = prstSchema;
-
+            _Schema = prstSchema;
             gerarDomain();
         }
     }
