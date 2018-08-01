@@ -1,6 +1,8 @@
 ﻿using EasyCode.Entities;
+using EasyCode.Services;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,39 +11,76 @@ namespace EasyCode.Framework
 {
     public class BaseGeneratorClass
     {
-        protected string _Namespace;
-        protected string _BoundedContext;
-        protected string _NameEntity;
-        protected string _Schema;
-        protected List<ProjectAttribute> _Attrs;
-        protected string _Codigo;
+        //protected string _Namespace;
+        //protected string _BoundedContext;
+        //protected string _NameEntity;
+        //protected string _Schema;
+        //protected List<ProjectAttribute> _Attrs;
+        //protected string _Codigo;
+
+        protected Project _Project;
+        protected string _PathSolution;
+
+        private const string _PathTemplate = @"C:\WorkSpace\meusProjetos\EasyCode\Templates\";
+        private const string _PathTemplateInterface = @"\Domain\Interfaces\Domain\";
+
+        private const string _PathTemplateEntity = @"Domain\Entities\Entity.cs";
+        private const string _PathTemplateService = @"Domain\Service\Service.cs";
+        private const string _PathTemplateIService = @"Domain\Services\IService.cs";
+        private const string _PathTemplateIInfra = @"Services\IService.cs";
+        public string PathTemplateEntity
+        {
+            get
+            {
+                return _PathTemplate + _PathTemplateEntity;
+            }
+        }
+
+        public string PathTemplateService
+        {
+            get
+            {
+                return _PathTemplate + _PathTemplateService;
+            }
+        }
+
+        public string PathTemplateIService
+        {
+            get
+            {
+                return _PathTemplate + _PathTemplateInterfaceDomain + _PathTemplateIService;
+            }
+        }
+
 
         public BaseGeneratorClass()
         {
-            _Namespace = string.Empty;
-            _BoundedContext = string.Empty;
-            _NameEntity = string.Empty;
-            _Schema = string.Empty;
-            _Codigo = string.Empty;
+            _Project = prProject;
+            _PathSolution = string.Empty;
+            //_Namespace = string.Empty;
+            //_BoundedContext = string.Empty;
+            //_NameEntity = string.Empty;
+            //_Schema = string.Empty;
+            //_Codigo = string.Empty;
         }
-        protected void removeLast(string prstChar)
-        {
-            _Codigo = _Codigo.Substring(0, _Codigo.Length - 3);
-        }
-        protected void addLine(string prstLine)
-        {
-            _Codigo = _Codigo + prstLine + "\r\n";
-        }
-        protected void aplicarVariaveis()
-        {
-            _Codigo = _Codigo.Replace("[Namespace]", _Namespace);
-            _Codigo = _Codigo.Replace("[BoundedContext]", _BoundedContext);
-            _Codigo = _Codigo.Replace("[NameEntity]", _NameEntity);
-            _Codigo = _Codigo.Replace("[NAMEENTITY]", _NameEntity.ToUpper());
-            _Codigo = _Codigo.Replace("[nameentity]", _NameEntity.ToLower());
-            _Codigo = _Codigo.Replace("[SCHEMA]", _Schema.ToUpper());
-            _Codigo = _Codigo.Replace("[NAMEMODULE]", _NameEntity.ToUpper());
-        }
+        //protected void removeLast(string prstChar)
+        //{
+        //    _Codigo = _Codigo.Substring(0, _Codigo.Length - 3);
+        //}
+        //protected void addLine(string prstLine)
+        //{
+        //    _Codigo = _Codigo + prstLine + "\r\n";
+        //}
+        //protected void aplicarVariaveis()
+        //{
+        //    _Codigo = _Codigo.Replace("[Namespace]", _Namespace);
+        //    _Codigo = _Codigo.Replace("[BoundedContext]", _BoundedContext);
+        //    _Codigo = _Codigo.Replace("[NameEntity]", _NameEntity);
+        //    _Codigo = _Codigo.Replace("[NAMEENTITY]", _NameEntity.ToUpper());
+        //    _Codigo = _Codigo.Replace("[nameentity]", _NameEntity.ToLower());
+        //    _Codigo = _Codigo.Replace("[SCHEMA]", _Schema.ToUpper());
+        //    _Codigo = _Codigo.Replace("[NAMEMODULE]", _NameEntity.ToUpper());
+        //}
         protected void gravarArquivo(string prLines, string prstPath, string prstNomeArquivo)
         {
             string lstDirectoryName = @"c:\plannerapps\gerador\DDD\" + prstPath;
@@ -93,6 +132,8 @@ namespace EasyCode.Framework
             }
             return lComparacao;
         }
+
+
         //protected string definirDescricao(ProjectAttribute prAttr)
         //{
         //    return (prAttr.Type == (int)ProjectAttribute.KDType.DateTime ? "Description" : "");

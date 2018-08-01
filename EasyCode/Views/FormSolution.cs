@@ -1,5 +1,6 @@
 ﻿using EasyCode.Entities;
 using EasyCode.Framework;
+using EasyCode.Services;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -44,14 +45,62 @@ namespace EasyCode.Views
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            foreach (TreeNode node in treeViewProjects.Nodes)
+            GenerateCodeService codeService = new GenerateCodeService();
+            _ProjectsToGenarate = new List<Project>();
+            foreach (var project in _ProjectsToTreeView)
             {
-                if (node.Checked || utilsForms.HasCheckedChildNodes(node))
-                    setProject(node);
+                TreeNode projectNode = treeViewProjects.Nodes.Find(project.NameSpace, true).FirstOrDefault();
+                if(projectNode != null && projectNode.Checked)
+                    codeService.executeDDD(project, @"C:\projetos\SES - DATASUS\fontes\apis_inconsistencia\SES - WebApi Distribuidor\");
             }
 
-
             Cursor.Current = Cursors.Default;
+        }
+
+        public void readAllNodesChecked(TreeNode prTreeNode)
+        {
+            UtilsForms utils = new UtilsForms();
+            foreach (TreeNode node in prTreeNode.Nodes)
+            {
+                if (node != null && node.Checked && utils.HasCheckedChildNodes(node))
+                {
+                    
+                    var objType = node.Tag.ToString().Split(';');
+
+                    int ObjectType = 0;
+                    int.TryParse(objType[0], out ObjectType);
+
+                    Project project = new Project();
+                    project.NameSpace = objType[1];
+
+
+                    var projectClass = _ProjectsToTreeView.FirstOrDefault(x => x.NameSpace == objType[1]);
+                    
+
+                    //switch (ObjectType)
+                    //{
+                    //    case (int)KDObjectType.Class:
+                    //        var projectClass = _ProjectsToTreeView.FirstOrDefault(x => x.NameSpace == objType[1])
+                    //                           .ProjectClasses.FirstOrDefault(x => x.Name == objType[2]);
+
+                    //        project.ProjectClasses.Add(projectClass);
+                    //        break;
+                    //    case (int)KDObjectType.Attr:
+                    //        break;
+                    //    default:
+                    //        if (treeViewProjects.GetNodeCount(true) <= 1)
+                    //            loadData();
+                    //        else
+                    //            this.decorateGridToProject();
+                    //        break;
+                    //}
+
+                    //_ProjectsToGenarate.Add();
+                    //    this.readAllNodesChecked(node);
+                }
+                    
+            }
+            
         }
 
         private void setProject(TreeNode treeNode)
@@ -60,30 +109,38 @@ namespace EasyCode.Views
             {
                 try
                 {
-                    var objectCode = Newtonsoft.Json.JsonConvert.DeserializeObject<ObjectCode>(node.Tag.ToString());
-                    switch (objectCode.ObjectType)
+                    var objType = node.Tag.ToString().Split(';');
+
+                    int ObjectType = 0;
+                    int.TryParse(objType[0], out ObjectType);
+
+                    switch (ObjectType)
                     {
                         case (int)KDObjectType.Project:
-                            var projects = JsonConvert.DeserializeObject<Project>(node.Tag.ToString());
+
+                            var projects = _ProjectsToTreeView.FirstOrDefault(x => x.NameSpace == objType[1]);
+                            this.decorateGridToClass(projects.ProjectClasses);
                             break;
                         case (int)KDObjectType.Class:
-                            var classes = JsonConvert.DeserializeObject<ProjectClass>(node.Tag.ToString());
+                            var projectClass = _ProjectsToTreeView.FirstOrDefault(x => x.NameSpace == objType[1])
+                                               .ProjectClasses.FirstOrDefault(x => x.Name == objType[2]);
+
+                            this.decorateGridToAttrs(projectClass.Attributes);
                             break;
                         case (int)KDObjectType.Attr:
                             break;
                         default:
+                            if (treeViewProjects.GetNodeCount(true) <= 1)
+                                loadData();
+                            else
+                                this.decorateGridToProject();
                             break;
                     }
-
-
-                    if (node.Nodes.Count > 0)
-                        this.setProject(node);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erro ao carregar as definições do projeto, tenta novamente mais tarde.");
                 }
-
             }
         }
 
@@ -115,6 +172,7 @@ namespace EasyCode.Views
 
                 TreeNode treeNodeProject = new TreeNode(project.NameSpace, nodesClass.ToArray());
                 treeNodeProject.Tag = $"{project.ObjectType};{project.NameSpace}";
+                treeNodeProject.Name = project.NameSpace;
                 nodesProjects.Add(treeNodeProject);
             }
 
@@ -170,7 +228,11 @@ namespace EasyCode.Views
             if (e.Action != TreeViewAction.Unknown)
             {
                 if (e.Node.Nodes.Count > 0)
+                {
                     utilsForms.CheckAllChildNodes(e.Node, e.Node.Checked);
+                }
+
+                utilsForms.CheckAllRootNodes(e.Node, e.Node.Checked);
             }
 
         }

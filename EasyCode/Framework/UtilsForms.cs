@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
-using System;
 
 namespace EasyCode.Framework
 {
@@ -17,14 +16,28 @@ namespace EasyCode.Framework
             }
         }
 
+        public void CheckAllRootNodes(TreeNode treeNode, bool nodeChecked)
+        {
+            if(treeNode.Parent != null)
+            {
+                treeNode.Parent.Checked = nodeChecked;
+                this.CheckAllRootNodes(treeNode.Parent, nodeChecked);
+            }          
+        }
+
+
         public bool HasCheckedChildNodes(TreeNode node)
         {
-            if (node.Nodes.Count == 0) return false;
+            if (node.Nodes.Count == 0)
+                return false;
+
             foreach (TreeNode childNode in node.Nodes)
             {
-                if (childNode.Checked) return true;
-                // Recursively check the children of the current child node.
-                if (HasCheckedChildNodes(childNode)) return true;
+                if (childNode.Checked)
+                    return true;
+
+                if (HasCheckedChildNodes(childNode))
+                    return true;
             }
             return false;
         }
