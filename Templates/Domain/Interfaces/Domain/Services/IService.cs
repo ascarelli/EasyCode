@@ -2,9 +2,9 @@
 using [NAMESPACE].Domain.Entities;
 using [NAMESPACE].Domain.Interfaces.Domain.Interactions;
 
-namespace [NAMESPACE].Interfaces.Domain.Services
+namespace [NAMESPACE].Domain.Interfaces.Domain.Services
 {
-    public interface I[ENTITY]EService : IService<[ENTITY]>, I[ENTITY]Interaction
+    public interface I[ENTITY]Service : IService<[ENTITY]>, I[ENTITY]Interaction
     {
     }
 }

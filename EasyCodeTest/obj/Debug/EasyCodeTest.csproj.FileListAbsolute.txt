@@ -61,3 +61,23 @@ C:\WorkSpace\meusProjetos\EasyCode\EasyCodeTest\bin\Debug\MongoDB.Driver.Legacy.
 C:\WorkSpace\meusProjetos\EasyCode\EasyCodeTest\obj\Debug\EasyCodeTest.csprojResolveAssemblyReference.cache
 C:\WorkSpace\meusProjetos\EasyCode\EasyCodeTest\obj\Debug\EasyCodeTest.dll
 C:\WorkSpace\meusProjetos\EasyCode\EasyCodeTest\obj\Debug\EasyCodeTest.pdb
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\bin\Debug\EasyCodeTest.dll
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\bin\Debug\EasyCodeTest.pdb
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\bin\Debug\DnsClient.dll
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\bin\Debug\EasyCode.exe
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\bin\Debug\MongoDB.Bson.dll
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\bin\Debug\MongoDB.Driver.Core.dll
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\bin\Debug\MongoDB.Driver.dll
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\bin\Debug\MongoDB.Driver.Legacy.dll
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\bin\Debug\System.Buffers.dll
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\bin\Debug\EasyCode.pdb
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\bin\Debug\DnsClient.xml
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\bin\Debug\MongoDB.Bson.xml
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\bin\Debug\MongoDB.Driver.xml
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\bin\Debug\MongoDB.Driver.Core.xml
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\bin\Debug\MongoDB.Driver.Legacy.xml
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\obj\Debug\EasyCodeTest.csprojResolveAssemblyReference.cache
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\obj\Debug\EasyCodeTest.dll
+C:\WorkSpace\meusProjetos\Easy Code\EasyCodeTest\obj\Debug\EasyCodeTest.pdb

@@ -7,8 +7,8 @@
     <ProjectGuid>{[PROJECTGUID]}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>[NAMESPACE]</RootNamespace>
-    <AssemblyName>[NAMESPACE]</AssemblyName>
+    <RootNamespace>[NAMESPACE].Domain</RootNamespace>
+    <AssemblyName>[NAMESPACE].Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

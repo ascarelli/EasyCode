@@ -84,6 +84,7 @@
   <ItemGroup>
     <Compile Include="Entities\ProjectAttribute.cs" />
     <Compile Include="Framework\BaseGeneratorClass.cs" />
+    <Compile Include="Framework\GenerateCode.cs" />
     <Compile Include="Framework\ObjectCode.cs" />
     <Compile Include="Entities\Project.cs" />
     <Compile Include="Entities\ProjectClass.cs" />
@@ -99,8 +100,14 @@
     <Compile Include="Framework\UtilsForms.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ApplicationService.cs" />
+    <Compile Include="Services\IoCService.cs" />
+    <Compile Include="Services\ProxyService.cs" />
+    <Compile Include="Services\TOService.cs" />
     <Compile Include="Services\DomainService.cs" />
     <Compile Include="Services\GenerateCodeService.cs" />
+    <Compile Include="Services\InfraRepositoryService.cs" />
+    <Compile Include="Services\InfraEFService.cs" />
     <Compile Include="Views\FormProject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +128,7 @@
     </Compile>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

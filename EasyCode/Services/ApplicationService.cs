@@ -1,149 +1,70 @@
 ﻿using EasyCode.Entities;
 using EasyCode.Framework;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace EasyCode.Services
 {
     public class ApplicationService : BaseGeneratorClass
     {
+        private readonly GenerateCodeService _GenerateCodeService;
+        private const string _PathTemplateIApp = @"App\Interfaces\IAppService.cs";
+        private const string _PathTemplateApp= @"App\Implementations\AppService.cs";
+        private const string _PathTemplatePackConfig = @"App\packages.config";
+        private const string _PathTemplateAssembly = @"App\AssemblyInfo.cs";
+        private const string _PathTemplateCsProj = @"App\App.csproj";
+
+        public string ProjectName { get { return _Project.NameSpace + ".Application"; } }
+        public string PathTemplateCsProj { get { return base.PathTemplates + _PathTemplateCsProj; } }
+        public string PathTemplatePackConfig { get { return base.PathTemplates + _PathTemplatePackConfig; } }
+        public string PathTemplateAssembly { get { return base.PathTemplates + _PathTemplateAssembly; } }
+
         public ApplicationService()
         {
-        }
 
-        public void execute(string prstNamespace, string prstNomeClasse, List<ProjectAttribute> prAttrs)
+        }
+        public ApplicationService(Project prProject, GenerateCode prGenerateCode)
         {
-            _Namespace = prstNamespace;
-            _Attrs = prAttrs;
-            _NameEntity = prstNomeClasse;
-
-            gerarApplication();
-            
+            _Project = prProject;
+            _GenerateCode = prGenerateCode;
+            _GenerateCodeService = new GenerateCodeService(prProject, prGenerateCode);
         }
 
-        private void gerarApplication()
+        public string createApp(Dictionary<string, string> prReferences)
         {
-            _Codigo = string.Empty;
-            addLine("using [Namespace].Application.ViewModels;");
-            addLine("using System.Collections.Generic;");
-            addLine(string.Empty);
-            addLine("namespace [Namespace].Application.Interface");
-            addLine("{");
-            addLine("    public interface I[NameEntity]AppService : IAppServiceBaseUoW");
-            addLine("    {");
-            addLine("       [NameEntity]ViewModel insert[NameEntity]([NameEntity]ViewModel pr[NameEntity]ViewModel);");
-            addLine("       [NameEntity]ViewModel update[NameEntity]([NameEntity]ViewModel pr[NameEntity]ViewModel);");
-            addLine("       [NameEntity]ViewModel remove[NameEntity]([NameEntity]ViewModel pr[NameEntity]ViewModel);");
-            addLine("       [NameEntity]ViewModel getByID(decimal pr[NameEntity]ID);");
-            addLine("       List<[NameEntity]ViewModel> getByFilter([NameEntity]ViewModel pr[NameEntity]ViewModel, int? skipresult, int? takeresult);");
-            addLine("    }");
-            addLine("}");
-            aplicarVariaveis();
-            gravarArquivo(_Codigo, "Application\\" + _NameEntity, "I" + _NameEntity + "AppService.cs");
-
-            _Codigo = string.Empty;
-            addLine("using [Namespace].Application.Interface;");
-            addLine("using [Namespace].Domain.Entities;");
-            addLine("using [Namespace].Domain.Interfaces.Services;");
-            addLine("using [Namespace].Application.Services;");
-            addLine("using [Namespace].Application.ViewModels;");
-            addLine("using Validation.Domain.Validation;");
-            addLine("using [Namespace].Domain.Validation;");
-            addLine("using AutoMapper;");
-            addLine("using System.Collections.Generic;");
-
-            addLine(string.Empty);
-            addLine("namespace [Namespace].Application");
-            addLine("{");
-            addLine("    public class [NameEntity]AppService : AppServiceBaseUoW, I[NameEntity]AppService");
-            addLine("    {");
-            addLine("        private readonly I[NameEntity]Service _[NameEntity]Service;");
-            addLine(string.Empty);
-            addLine("        public [NameEntity]AppService(I[NameEntity]Service prI[NameEntity]Service)");
-            addLine("            : base()");
-            addLine("        {");
-            addLine("            _[NameEntity]Service = prI[NameEntity]Service;");
-            addLine("        }");
-
-            addLine(string.Empty);
-            addLine("        public [NameEntity]ViewModel insert[NameEntity]([NameEntity]ViewModel pr[NameEntity]ViewModel)");
-            addLine("        {");
-            addLine("            [NameEntity] l[NameEntity] = Mapper.Map<[NameEntity]ViewModel, [NameEntity]>(pr[NameEntity]ViewModel);");
-            addLine("            BeginTransaction();");
-            addLine("            ValidationResult lValidationResult = _[NameEntity]Service.insert[NameEntity](l[NameEntity]);");
-            addLine("            if (lValidationResult.IsValid)");
-            addLine("            {");
-            addLine("               Commit();");
-            addLine("               pr[NameEntity]ViewModel." + _NameEntity.ToUpper() + "ID" + "= l[NameEntity]." + _NameEntity.ToUpper() + "ID;");
-            addLine("            }");
-            addLine(string.Empty);
-            addLine("            pr[NameEntity]ViewModel.ValidationAppResult = DomainToApplicationResult(lValidationResult);");
-            addLine(string.Empty);
-            addLine("            return pr[NameEntity]ViewModel;");
-            addLine("        }");
-
-
-            addLine(string.Empty);
-            addLine("        public [NameEntity]ViewModel update[NameEntity]([NameEntity]ViewModel pr[NameEntity]ViewModel)");
-            addLine("        {");
-            addLine("            [NameEntity] l[NameEntity] = Mapper.Map<[NameEntity]ViewModel, [NameEntity]>(pr[NameEntity]ViewModel);");
-            addLine("            BeginTransaction();");
-            addLine("            ValidationResult lValidationResult = _[NameEntity]Service.update[NameEntity](l[NameEntity]);");
-            addLine("            if (lValidationResult.IsValid)");
-            addLine("            {");
-            addLine("               Commit();");
-            addLine("            }");
-            addLine(string.Empty);
-            addLine("            pr[NameEntity]ViewModel.ValidationAppResult = DomainToApplicationResult(lValidationResult);");
-            addLine(string.Empty);
-            addLine("            return pr[NameEntity]ViewModel;");
-            addLine("        }");
-
-
-            addLine(string.Empty);
-            addLine("        public [NameEntity]ViewModel remove[NameEntity]([NameEntity]ViewModel pr[NameEntity]ViewModel)");
-            addLine("        {");
-            addLine("            [NameEntity] l[NameEntity] = Mapper.Map<[NameEntity]ViewModel, [NameEntity]>(pr[NameEntity]ViewModel);");
-            addLine("            BeginTransaction();");
-            addLine("            ValidationResult lValidationResult = _[NameEntity]Service.remove[NameEntity](l[NameEntity]);");
-            addLine("            if (lValidationResult.IsValid)");
-            addLine("            {");
-            addLine("               Commit();");
-            addLine("            }");
-            addLine(string.Empty);
-            addLine("            pr[NameEntity]ViewModel.ValidationAppResult = DomainToApplicationResult(lValidationResult);");
-            addLine(string.Empty);
-            addLine("            return pr[NameEntity]ViewModel;");
-            addLine("        }");
-
-            addLine(string.Empty);
-
-            addLine("        public [NameEntity]ViewModel getByID(decimal pr[NameEntity]ID)");
-            addLine("        {");
-            addLine("            [NameEntity] l[NameEntity] = _[NameEntity]Service.getByID(pr[NameEntity]ID);");
-            addLine("            [NameEntity]ViewModel l[NameEntity]ViewModel = Mapper.Map<[NameEntity], [NameEntity]ViewModel>(l[NameEntity]);");
-            addLine("            return l[NameEntity]ViewModel;");
-            addLine("        }");
-
-            addLine(string.Empty);
-            addLine("        public List<[NameEntity]ViewModel> getByFilter([NameEntity]ViewModel pr[NameEntity]ViewModel, int? skipresult, int? takeresult)");
-            addLine("        {");
-            addLine("            [NameEntity] l[NameEntity] = Mapper.Map<[NameEntity]ViewModel, [NameEntity]>(pr[NameEntity]ViewModel);");
-            addLine("            List<[NameEntity]> l[NameEntity]Collection = _[NameEntity]Service.getByFilter(l[NameEntity], skipresult, takeresult);");
-            addLine("            List<[NameEntity]ViewModel> l[NameEntity]ViewModelCollection = l[NameEntity]Collection.ConvertAll(x => Mapper.Map<[NameEntity], [NameEntity]ViewModel>(x));");
-            addLine(string.Empty);
-            addLine("            return l[NameEntity]ViewModelCollection;");
-            addLine("        }");
-
-            addLine("    }");
-            addLine("}");
-            aplicarVariaveis();
-            gravarArquivo(_Codigo, "Application\\" + _NameEntity, _NameEntity + "AppService.cs");
+            var projectguid = createProject(prReferences);
+            createInterface();
+            createImplementation();
+            return projectguid;
         }
 
-      
+        private string createProject(Dictionary<string, string> prReferences)
+        {
+            return _GenerateCodeService.createProject(this.ProjectName,
+                                                      this.PathTemplateCsProj,
+                                                      this.PathTemplatePackConfig,
+                                                      this.PathTemplateAssembly,
+                                                      prReferences);
+        }
+
+        private void createInterface()
+        {
+            string text = File.ReadAllText(base.PathTemplates + _PathTemplateIApp);
+            foreach (var projectClass in _Project.ProjectClasses)
+            {
+                text = base.replaceVariables(text);
+                base.saveFile(_GenerateCode.PathSolution + ProjectName + @"\Interfaces", $"\\I{projectClass.Name}AppService.cs", text);
+            }
+        }
+
+        private void createImplementation()
+        {
+            string text = File.ReadAllText(base.PathTemplates + _PathTemplateApp);
+            foreach (var projectClass in _Project.ProjectClasses)
+            {
+                text = text.Replace("[ENTITY]", projectClass.Name).Replace("[NAMESPACE]", _Project.NameSpace);
+                base.saveFile(_GenerateCode.PathSolution + ProjectName + @"\Implementations", $"\\{projectClass.Name}AppService.cs", text);
+            }
+        }
     }
 }
