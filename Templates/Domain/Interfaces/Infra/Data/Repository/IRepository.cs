@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace [NAMESPACE].Interfaces.Infra.Data.Repository
+namespace [NAMESPACE].Domain.Interfaces.Infra.Data.Repository
 {
     public interface I[ENTITY]Repository : IRepository<[ENTITY]>
     {

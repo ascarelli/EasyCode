@@ -1,17 +1,19 @@
 using Prodesp.Core.Backend.Domain.Interfaces;
 using Prodesp.Core.Backend.Domain.Interfaces.Domain.Validations;
 using Prodesp.Core.Backend.Domain.Validations;
-using System;
 
-namespace [NAMESPACE].Entities
+namespace [NAMESPACE].Domain.Entities
 {
     public class [ENTITY] : IEntityKey<string>, ISelfValidation
     {
-        public TipoCentro()
+        public [ENTITY]()
         {
         }
 
-	   [ATTRS]
+		public string Id { get; set; }
+		[ATTRS]
+		public ValidationResult ValidationResult { get; set; }
+		
         public bool IsValid
         {
             get

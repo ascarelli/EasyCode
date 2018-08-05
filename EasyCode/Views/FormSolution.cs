@@ -1,15 +1,9 @@
 ﻿using EasyCode.Entities;
 using EasyCode.Framework;
 using EasyCode.Services;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -30,12 +24,10 @@ namespace EasyCode.Views
         {
         
         }
-
         private void FormSolution_Shown(object sender, EventArgs e)
         {
             loadData();
         }
-
         private void btnNewProject_Click(object sender, EventArgs e)
         {
             FormProject fmr = new FormProject();
@@ -43,107 +35,36 @@ namespace EasyCode.Views
         }
         private void btnGenareCode_Click(object sender, EventArgs e)
         {
-            Cursor.Current = Cursors.WaitCursor;
-
-            GenerateCodeService codeService = new GenerateCodeService();
-            _ProjectsToGenarate = new List<Project>();
-            foreach (var project in _ProjectsToTreeView)
+            if(string.IsNullOrWhiteSpace(txtPathSln.Text))
             {
-                TreeNode projectNode = treeViewProjects.Nodes.Find(project.NameSpace, true).FirstOrDefault();
-                if(projectNode != null && projectNode.Checked)
-                    codeService.executeDDD(project, @"C:\projetos\SES - DATASUS\fontes\apis_inconsistencia\SES - WebApi Distribuidor\");
+                MessageBox.Show("Digite o caminho da Solution SLN.");
             }
-
-            Cursor.Current = Cursors.Default;
-        }
-
-        public void readAllNodesChecked(TreeNode prTreeNode)
-        {
-            UtilsForms utils = new UtilsForms();
-            foreach (TreeNode node in prTreeNode.Nodes)
-            {
-                if (node != null && node.Checked && utils.HasCheckedChildNodes(node))
-                {
-                    
-                    var objType = node.Tag.ToString().Split(';');
-
-                    int ObjectType = 0;
-                    int.TryParse(objType[0], out ObjectType);
-
-                    Project project = new Project();
-                    project.NameSpace = objType[1];
-
-
-                    var projectClass = _ProjectsToTreeView.FirstOrDefault(x => x.NameSpace == objType[1]);
-                    
-
-                    //switch (ObjectType)
-                    //{
-                    //    case (int)KDObjectType.Class:
-                    //        var projectClass = _ProjectsToTreeView.FirstOrDefault(x => x.NameSpace == objType[1])
-                    //                           .ProjectClasses.FirstOrDefault(x => x.Name == objType[2]);
-
-                    //        project.ProjectClasses.Add(projectClass);
-                    //        break;
-                    //    case (int)KDObjectType.Attr:
-                    //        break;
-                    //    default:
-                    //        if (treeViewProjects.GetNodeCount(true) <= 1)
-                    //            loadData();
-                    //        else
-                    //            this.decorateGridToProject();
-                    //        break;
-                    //}
-
-                    //_ProjectsToGenarate.Add();
-                    //    this.readAllNodesChecked(node);
-                }
-                    
-            }
-            
-        }
-
-        private void setProject(TreeNode treeNode)
-        {
-            foreach (TreeNode node in treeNode.Nodes)
+            else
             {
                 try
                 {
-                    var objType = node.Tag.ToString().Split(';');
-
-                    int ObjectType = 0;
-                    int.TryParse(objType[0], out ObjectType);
-
-                    switch (ObjectType)
+                    Cursor.Current = Cursors.WaitCursor;
+                    _ProjectsToGenarate = new List<Project>();
+                    foreach (var project in _ProjectsToTreeView)
                     {
-                        case (int)KDObjectType.Project:
-
-                            var projects = _ProjectsToTreeView.FirstOrDefault(x => x.NameSpace == objType[1]);
-                            this.decorateGridToClass(projects.ProjectClasses);
-                            break;
-                        case (int)KDObjectType.Class:
-                            var projectClass = _ProjectsToTreeView.FirstOrDefault(x => x.NameSpace == objType[1])
-                                               .ProjectClasses.FirstOrDefault(x => x.Name == objType[2]);
-
-                            this.decorateGridToAttrs(projectClass.Attributes);
-                            break;
-                        case (int)KDObjectType.Attr:
-                            break;
-                        default:
-                            if (treeViewProjects.GetNodeCount(true) <= 1)
-                                loadData();
-                            else
-                                this.decorateGridToProject();
-                            break;
+                        TreeNode projectNode = treeViewProjects.Nodes.Find(project.NameSpace, true).FirstOrDefault();
+                        if (projectNode != null && projectNode.Checked)
+                        {
+                            GenerateCode generateCode = new GenerateCode();
+                            generateCode.PathSolution = txtPathSln.Text + "\\";
+                            generateCode.Entity = project.ProjectClasses[0].Name;
+                            GenerateCodeService codeService = new GenerateCodeService(project, generateCode);
+                            codeService.executeDDD();
+                        }
                     }
+                    Cursor.Current = Cursors.Default;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao carregar as definições do projeto, tenta novamente mais tarde.");
+                    MessageBox.Show("Erro ao criar Solution.");
                 }
             }
         }
-
         private void loadData()
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -181,7 +102,6 @@ namespace EasyCode.Views
             treeViewProjects.Nodes.Add(treeNodeProjects);
             Cursor.Current = Cursors.Default;
         }
-
         private void treeViewProjects_AfterSelect(object sender, TreeViewEventArgs e)
         {
             dtgOperations.DataSource = null;
@@ -222,7 +142,6 @@ namespace EasyCode.Views
                 MessageBox.Show("Erro ao carregar as definições do projeto, tenta novamente mais tarde.");
             }
         }
-
         private void treeViewProjects_AfterCheck(object sender, TreeViewEventArgs e)
         {
             if (e.Action != TreeViewAction.Unknown)
@@ -236,7 +155,6 @@ namespace EasyCode.Views
             }
 
         }
-
         private void decorateGridToProject()
         {
             createControlsToGrid(new GridControls
@@ -257,7 +175,6 @@ namespace EasyCode.Views
 
             dtgOperations.DataSource = _ProjectsToTreeView;
         }
-
         private void decorateGridToClass(IList<ProjectClass> prClasses)
         {
             createControlsToGrid(new GridControls
@@ -277,7 +194,6 @@ namespace EasyCode.Views
 
             dtgOperations.DataSource = prClasses;
         }
-
         private void decorateGridToAttrs(IList<ProjectAttribute> prAttrs)
         {
             createControlsToGrid(new GridControls
@@ -331,7 +247,6 @@ namespace EasyCode.Views
 
             dtgOperations.DataSource = prAttrs;
         }
-
         private void createControlsToGrid(GridControls prGridControls)
         {
             if (prGridControls.DataGridViewTextBoxColumn != null)

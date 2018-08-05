@@ -1,0 +1,2 @@
+\nProject("{[GUIDTOPROJECT]"}") = "[PROJECTNAME]", "[PROJECTNAME]\[PROJECTNAME].csproj", "{[PROJECTGUID]}"
+EndProject"

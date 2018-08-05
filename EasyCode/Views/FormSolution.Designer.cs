@@ -37,6 +37,7 @@
             this.btnNewProject = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnGenareCode = new System.Windows.Forms.Button();
+            this.txtPathSln = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgOperations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -165,12 +166,20 @@
             this.btnGenareCode.UseVisualStyleBackColor = false;
             this.btnGenareCode.Click += new System.EventHandler(this.btnGenareCode_Click);
             // 
+            // txtPathSln
+            // 
+            this.txtPathSln.Location = new System.Drawing.Point(467, 25);
+            this.txtPathSln.Name = "txtPathSln";
+            this.txtPathSln.Size = new System.Drawing.Size(360, 20);
+            this.txtPathSln.TabIndex = 10;
+            // 
             // FormSolution
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1076, 528);
+            this.Controls.Add(this.txtPathSln);
             this.Controls.Add(this.btnGenareCode);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.btnNewProject);
@@ -200,5 +209,6 @@
         private System.Windows.Forms.Button btnNewProject;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button btnGenareCode;
+        private System.Windows.Forms.TextBox txtPathSln;
     }
 }

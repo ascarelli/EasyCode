@@ -10,7 +10,7 @@ namespace [NAMESPACE].Domain.Services
     {
         private readonly I[ENTITY]Repository _[ENTITY]Repository;
 
-        public TipoCentroService(I[ENTITY]Repository pr[ENTITY]Repository) 
+        public [ENTITY]Service(I[ENTITY]Repository pr[ENTITY]Repository) 
             : base(pr[ENTITY]Repository)
         {
             _[ENTITY]Repository = pr[ENTITY]Repository;
