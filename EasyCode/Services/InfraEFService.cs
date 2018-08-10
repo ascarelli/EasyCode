@@ -85,7 +85,7 @@ namespace EasyCode.Services
         {
             string text = File.ReadAllText(base.PathTemplates + _PathTemplateUnitOfWork);
             text = base.replaceVariables(text);
-            base.saveFile(_GenerateCode.PathSolution + ProjectName + _PathUnitOfWork, "\\UnitOfWork.cs", text);
+            base.saveFile(_GenerateCode.PathSolution + ProjectName + _PathUnitOfWork, $"\\UnitOfWork.cs", text);
         }
     }
 }

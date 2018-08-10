@@ -1,6 +1,10 @@
-﻿using MongoDB.Bson;
+﻿using EasyCode.Entities;
+using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 using System.Collections.Generic;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace EasyCode.Framework
 {
@@ -10,24 +14,6 @@ namespace EasyCode.Framework
         public MongoDBCore()
         {
             _MongoDatabase = new MongoClient("mongodb://localhost").GetDatabase("local");
-        }
-
-        public BsonDocument add<T>(T prDocument)
-        {
-            BsonDocument bDoc;
-            try
-            {
-                var collectionName = typeof(T).Name;
-                IMongoCollection<BsonDocument> mCollection = _MongoDatabase.GetCollection<BsonDocument>(collectionName);
-                bDoc = prDocument.ToBsonDocument();
-                mCollection.InsertOne(bDoc);
-            }
-            catch (System.Exception ex)
-            {
-                bDoc = null;
-            }
-
-            return bDoc;
         }
 
         public ReplaceOneResult update<T>(FilterDefinition<T> prFilter, T prDocument)
@@ -53,6 +39,25 @@ namespace EasyCode.Framework
             List<T> documents = collection.Find(new BsonDocument()).ToList();
             return documents;
         }
+
+        public BsonDocument add<T>(T prDocument)
+        {
+            BsonDocument bDoc;
+            try
+            {
+                var collectionName = typeof(T).Name;
+                IMongoCollection<BsonDocument> mCollection = _MongoDatabase.GetCollection<BsonDocument>(collectionName);
+                bDoc = prDocument.ToBsonDocument();
+                mCollection.InsertOne(bDoc);
+            }
+            catch (System.Exception ex)
+            {
+                bDoc = null;
+            }
+
+            return bDoc;
+        }
+
 
         //public class MyContext
         //{

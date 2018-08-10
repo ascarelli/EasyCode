@@ -37,13 +37,12 @@ namespace EasyCode.Framework
         protected string replaceVariables(string prText)
         {
             prText = prText.Replace("[NAMESPACE]", string.IsNullOrWhiteSpace(_Project.NameSpace) ? "" : _Project.NameSpace);
+            //prText = prText.Replace("[BoundedContext]", _BoundedContext);
             prText = prText.Replace("[ENTITY]", string.IsNullOrWhiteSpace(_GenerateCode.Entity) ? "" : _GenerateCode.Entity);
             prText = prText.Replace("[ENTITYUPPER]", string.IsNullOrWhiteSpace(_GenerateCode.Entity) ? "" : _GenerateCode.Entity.ToUpper());
             prText = prText.Replace("[entity]", string.IsNullOrWhiteSpace(_GenerateCode.Entity) ? "" : _GenerateCode.Entity.ToLower());
-
-            //prText = prText.Replace("[BoundedContext]", _BoundedContext);
-            //prText = prText.Replace("[SCHEMA]", string.IsNullOrWhiteSpace(_GenerateCode.PathSolution) ? "" : _GenerateCode.PathSolution);
-            //prText = prText.Replace("[NAMEMODULE]", string.IsNullOrWhiteSpace(_GenerateCode.PathSolution) ? "" : _GenerateCode.PathSolution);
+            prText = prText.Replace("[SCHEMA]", string.IsNullOrWhiteSpace(_GenerateCode.PathSolution) ? "" : _GenerateCode.PathSolution);
+            prText = prText.Replace("[NAMEMODULE]", string.IsNullOrWhiteSpace(_GenerateCode.PathSolution) ? "" : _GenerateCode.PathSolution);
             //prText = prText.Replace("[DATABASE]", string.IsNullOrWhiteSpace(_GenerateCode.PathSolution) ? "" : _GenerateCode.PathSolution);
             //prText = prText.Replace("[CONNNAME]", string.IsNullOrWhiteSpace(_GenerateCode.PathSolution) ? "" : _GenerateCode.PathSolution);
 
@@ -53,12 +52,6 @@ namespace EasyCode.Framework
         {
             createPath(prPathFileFolder);
             File.WriteAllText(prPathFileFolder + $"\\{prFile}", prText);
-        }
-
-        protected void deleteFile(string prPath)
-        {
-            if (File.Exists(prPath))
-                File.Delete(prPath);
         }
         protected string definirComparacaoValidation(ProjectAttribute prAttr)
         {

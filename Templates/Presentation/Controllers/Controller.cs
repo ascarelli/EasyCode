@@ -1,9 +1,9 @@
 ﻿using Prodesp.Core.Backend.Application.WebApi.Controllers;
 using Prodesp.Core.Backend.Domain.Interfaces.Infra.Data;
-using [NAMESPACE].TO.Response;
+using Prodesp.Gsnet.Centro.Application.WebApi.TO.Response;
 using [NAMESPACE].Application.Interfaces;
 using [NAMESPACE].Domain.Entities;
-using [NAMESPACE].Infra.Data.EF;
+using [NAMESPACE].Infra.EF;
 using Prodesp.Gsnet.Core.TO.Validation;
 using Prodesp.Gsnet.Framework.Log;
 using System;

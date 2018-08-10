@@ -1,6 +1,6 @@
 ﻿using Ninject.Modules;
 using [NAMESPACE].Domain.Interfaces.Infra.Data.Repository;
-using [NAMESPACE].Infra.Data.Repository.Repositories;
+using [NAMESPACE].Infra.Repository.Repositories;
 
 namespace [NAMESPACE].CrossCutting.IoC.Modules
 {

@@ -84,7 +84,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-	<Compile Include="Repositories\[ENTITY]Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     [REFERENCES]

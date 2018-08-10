@@ -100,7 +100,6 @@
     <Compile Include="Framework\UtilsForms.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\PresentationService.cs" />
     <Compile Include="Services\ApplicationService.cs" />
     <Compile Include="Services\IoCService.cs" />
     <Compile Include="Services\ProxyService.cs" />

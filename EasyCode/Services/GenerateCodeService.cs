@@ -29,21 +29,22 @@ namespace EasyCode.Services
         public void executeDDD()
         {
             #region Solution's Projects
-            //Guid csrpoj Presentation
-            string csProjectPresentation = $"{_Project.NameSpace}\\{_Project.NameSpace}.csproj";
-            var indexSolutionProject = _TextSL.IndexOf(csProjectPresentation);
-            var guidProjPres = _TextSL.Substring(indexSolutionProject, (_IndexEndProject - indexSolutionProject)).Replace(csProjectPresentation, "").Replace("\"", "").Replace(",", "").Replace("{", "").Replace("}", "").Replace("\\", "").Trim();
+            //Presentation
+            string solutionProject = $"{_Project.NameSpace}\\{_Project.NameSpace}.csproj";
+            var indexSolutionProject = _TextSL.IndexOf(solutionProject);
+            var guidProjPres = _TextSL.Substring(indexSolutionProject, (_IndexEndProject - indexSolutionProject)).Replace(solutionProject, "").Replace("\"", "").Replace(",", "").Replace("{", "").Replace("}", "").Replace("\\", "").Trim();
 
-            //Solution
             var indexProject = _TextSL.IndexOf("Project");
-            var slnDeclaration = _TextSL.Substring(indexProject, ((_IndexEndProject + "EndProject".Count()) - indexProject));
-            var slnMyDeclaration = slnDeclaration;
-            this.createNugetConfig(_GenerateCode.PathSolution, base.PathTemplates + "\\SLN\\NuGet.config");
+            var projectDeclaration = _TextSL.Substring(indexProject, ((_IndexEndProject + "EndProject".Count()) - indexProject));
+            var projectMyDeclaration = projectDeclaration;
+
+            PresentationService presentationService = new PresentationService(_Project,_GenerateCode);
+            presentationService.createPresentation();
 
             //Domain
             DomainService domainService = new DomainService(_Project, _GenerateCode);
             var guidProjDomain = domainService.createDomain();
-            slnMyDeclaration += "\nProject(\"{" + _GuidToProject + "}\") = \"" + domainService.ProjectName + "\", \"" +
+            projectMyDeclaration += "\nProject(\"{" + _GuidToProject + "}\") = \"" + domainService.ProjectName + "\", \"" +
                                                       domainService.ProjectName + "\\" + domainService.ProjectName + ".csproj" + "\", " + "\"{" +
                                                       guidProjDomain + "}\"" + "\nEndProject";  //TODO: USAR TEMPLATE TXT
 
@@ -52,7 +53,7 @@ namespace EasyCode.Services
             Dictionary<string, string> _References = new Dictionary<string, string>();
             _References.Add(guidProjDomain, domainService.ProjectName);
             var guidProjInfraEF = infraEFService.createEF(_References);
-            slnMyDeclaration += "\nProject(\"{" + _GuidToProject + "}\") = \"" + infraEFService.ProjectName + "\", \"" +
+            projectMyDeclaration += "\nProject(\"{" + _GuidToProject + "}\") = \"" + infraEFService.ProjectName + "\", \"" +
                                                       infraEFService.ProjectName + "\\" + infraEFService.ProjectName + ".csproj" + "\", " + "\"{" +
                                                       guidProjInfraEF + "}\"" + "\nEndProject";  //TODO: USAR TEMPLATE TXT
 
@@ -62,14 +63,14 @@ namespace EasyCode.Services
             _References.Add(guidProjDomain, domainService.ProjectName);
             _References.Add(guidProjInfraEF, infraEFService.ProjectName);
             var guidProjInfraRepo = infraRepositoryService.createRepository(_References);
-            slnMyDeclaration += "\nProject(\"{" + _GuidToProject + "}\") = \"" + infraRepositoryService.ProjectName + "\", \"" +
+            projectMyDeclaration += "\nProject(\"{" + _GuidToProject + "}\") = \"" + infraRepositoryService.ProjectName + "\", \"" +
                                                       infraRepositoryService.ProjectName + "\\" + infraRepositoryService.ProjectName + ".csproj" + "\", " + "\"{" +
                                                       guidProjInfraRepo + "}\"" + "\nEndProject";  //TODO: USAR TEMPLATE TXT
 
             //TO
             TOService toService = new TOService(_Project, _GenerateCode);
             var guidProjTO = toService.createTO();
-            slnMyDeclaration += "\nProject(\"{" + _GuidToProject + "}\") = \"" + toService.ProjectName + "\", \"" +
+            projectMyDeclaration += "\nProject(\"{" + _GuidToProject + "}\") = \"" + toService.ProjectName + "\", \"" +
                                                       toService.ProjectName + "\\" + toService.ProjectName + ".csproj" + "\", " + "\"{" +
                                                       guidProjTO + "}\"" + "\nEndProject";  //TODO: USAR TEMPLATE TXT
 
@@ -78,7 +79,7 @@ namespace EasyCode.Services
             _References = new Dictionary<string, string>();
             _References.Add(guidProjTO, toService.ProjectName);
             var guidProjProxy = proxyService.createProxy(_References);
-            slnMyDeclaration += "\nProject(\"{" + _GuidToProject + "}\") = \"" + proxyService.ProjectName + "\", \"" +
+            projectMyDeclaration += "\nProject(\"{" + _GuidToProject + "}\") = \"" + proxyService.ProjectName + "\", \"" +
                                                       proxyService.ProjectName + "\\" + proxyService.ProjectName + ".csproj" + "\", " + "\"{" +
                                                       guidProjProxy + "}\"" + "\nEndProject";  //TODO: USAR TEMPLATE TXT
 
@@ -88,7 +89,7 @@ namespace EasyCode.Services
             _References.Add(guidProjTO, toService.ProjectName);
             _References.Add(guidProjDomain, domainService.ProjectName);
             var guidProjApp = appService.createApp(_References);
-            slnMyDeclaration += "\nProject(\"{" + _GuidToProject + "}\") = \"" + appService.ProjectName + "\", \"" +
+            projectMyDeclaration += "\nProject(\"{" + _GuidToProject + "}\") = \"" + appService.ProjectName + "\", \"" +
                                                       appService.ProjectName + "\\" + appService.ProjectName + ".csproj" + "\", " + "\"{" +
                                                       guidProjApp + "}\"" + "\nEndProject";  //TODO: USAR TEMPLATE TXT
 
@@ -100,53 +101,43 @@ namespace EasyCode.Services
             _References.Add(guidProjInfraEF, infraEFService.ProjectName);
             _References.Add(guidProjInfraRepo, infraRepositoryService.ProjectName);
             var guidProjCrosIOC = iocService.createIoC(_References);
-            slnMyDeclaration += "\nProject(\"{" + _GuidToProject + "}\") = \"" + iocService.ProjectName + "\", \"" +
+            projectMyDeclaration += "\nProject(\"{" + _GuidToProject + "}\") = \"" + iocService.ProjectName + "\", \"" +
                                                       iocService.ProjectName + "\\" + iocService.ProjectName + ".csproj" + "\", " + "\"{" +
                                                       guidProjCrosIOC + "}\"" + "\nEndProject";  //TODO: USAR TEMPLATE TXT
-
-            //Presentation
-            PresentationService presentationService = new PresentationService(_Project, _GenerateCode);
-            _References = new Dictionary<string, string>();
-            _References.Add(guidProjDomain, domainService.ProjectName);
-            _References.Add(guidProjApp, appService.ProjectName);
-            _References.Add(guidProjCrosIOC, iocService.ProjectName);
-            _References.Add(guidProjInfraEF, infraEFService.ProjectName);
-            _References.Add(guidProjTO, toService.ProjectName);
-            presentationService.createPresentation(_References);
 
             #endregion
 
             #region Solution's Folders
             //01 - Presentation
             var guidFolderPres = Guid.NewGuid().ToString().ToUpper();
-            slnMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"01 - Presentation\", \"01 - Presentation\", " + "\"{" + guidFolderPres + "}\"" + "\nEndProject";
+            projectMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"01 - Presentation\", \"01 - Presentation\", " + "\"{" + guidFolderPres + "}\"" + "\nEndProject";
             //02 - Application
             var guidFolderApp = Guid.NewGuid().ToString().ToUpper();
-            slnMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"02 - Application\", \"02 - Application\", " + "\"{" + guidFolderApp + "}\"" + "\nEndProject";
+            projectMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"02 - Application\", \"02 - Application\", " + "\"{" + guidFolderApp + "}\"" + "\nEndProject";
             //03 - Domain
             var guidFolderDomain = Guid.NewGuid().ToString().ToUpper();
-            slnMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"03 - Domain\", \"03 - Domain\", " + "\"{" + guidFolderDomain + "}\"" + "\nEndProject";
+            projectMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"03 - Domain\", \"03 - Domain\", " + "\"{" + guidFolderDomain + "}\"" + "\nEndProject";
             //04 - Infrastructure
             var guidFolderInfra = Guid.NewGuid().ToString().ToUpper();
-            slnMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"04 - Infrastructure\", \"04 - Infrastructure\", " + "\"{" + guidFolderInfra + "}\"" + "\nEndProject";
+            projectMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"04 - Infrastructure\", \"04 - Infrastructure\", " + "\"{" + guidFolderInfra + "}\"" + "\nEndProject";
             var guidFolderData = Guid.NewGuid().ToString().ToUpper();
-            slnMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"4.1 - Data\", \"4.1 - Data\", " + "\"{" + guidFolderData + "}\"" + "\nEndProject";
+            projectMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"4.1 - Data\", \"4.1 - Data\", " + "\"{" + guidFolderData + "}\"" + "\nEndProject";
             var guidFolderRepository = Guid.NewGuid().ToString().ToUpper();
-            slnMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"4.1.1 - Repository\", \"4.1.1 - Repository\", " + "\"{" + guidFolderRepository + "}\"" + "\nEndProject";
+            projectMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"4.1.1 - Repository\", \"4.1.1 - Repository\", " + "\"{" + guidFolderRepository + "}\"" + "\nEndProject";
             var guidFolderEF = Guid.NewGuid().ToString().ToUpper();
-            slnMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"4.1.0 - EF\", \"4.1.0 - EF\", " + "\"{" + guidFolderEF + "}\"" + "\nEndProject";
+            projectMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"4.1.0 - EF\", \"4.1.0 - EF\", " + "\"{" + guidFolderEF + "}\"" + "\nEndProject";
             //05 -CrossCutting
             var guidFolderCross = Guid.NewGuid().ToString().ToUpper();
-            slnMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"05 - CrossCutting\", \"05 - CrossCutting\", " + "\"{" + guidFolderCross + "}\"" + "\nEndProject";
+            projectMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"05 - CrossCutting\", \"05 - CrossCutting\", " + "\"{" + guidFolderCross + "}\"" + "\nEndProject";
             var guidFolderIOC = Guid.NewGuid().ToString().ToUpper();
-            slnMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"5.1 - IoC\", \"5.1 - IoC\", " + "\"{" + guidFolderIOC + "}\"" + "\nEndProject";
+            projectMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"5.1 - IoC\", \"5.1 - IoC\", " + "\"{" + guidFolderIOC + "}\"" + "\nEndProject";
             var guidFolderTO = Guid.NewGuid().ToString().ToUpper();
-            slnMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"5.2 - TO\", \"5.2 - TO\", " + "\"{" + guidFolderTO + "}\"" + "\nEndProject";
+            projectMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"5.2 - TO\", \"5.2 - TO\", " + "\"{" + guidFolderTO + "}\"" + "\nEndProject";
             //06 - Commom
             var guidFolderProxy = Guid.NewGuid().ToString().ToUpper();
-            slnMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"06 - Commom\", \"06 - Commom\", " + "\"{" + guidFolderProxy + "}\"" + "\nEndProject";
+            projectMyDeclaration += "\nProject(\"{" + _GuidToFolder + "}\") = \"06 - Commom\", \"06 - Commom\", " + "\"{" + guidFolderProxy + "}\"" + "\nEndProject";
 
-            _TextSL = _TextSL.Replace(slnDeclaration, slnMyDeclaration);
+            _TextSL = _TextSL.Replace(projectDeclaration, projectMyDeclaration);
 
             #endregion
 
@@ -200,7 +191,7 @@ namespace EasyCode.Services
             return csProjGuid;
         }
 
-        public string createReferences(Dictionary<string, string> prReferencesProject, string prTextCsProj)
+        private string createReferences(Dictionary<string, string> prReferencesProject, string prTextCsProj)
         {
             StringBuilder sbReference = new StringBuilder();
             foreach (var item in prReferencesProject)
@@ -208,31 +199,16 @@ namespace EasyCode.Services
                 //TODO: FAZER UMA TEMPLATE
                 sbReference.AppendLine($"<ProjectReference Include=\"..\\{item.Value}\\{item.Value}.csproj\">");
                 sbReference.AppendLine("    <Project>{" + item.Key + "}</Project>");
-                sbReference.AppendLine($"   <Name>{item.Value}</Name>");
+                sbReference.AppendLine($"    <Name>{item.Value}</Name>");
                 sbReference.AppendLine("</ProjectReference>");
             }
 
             return prTextCsProj.Replace("[REFERENCES]", sbReference.ToString());
         }
 
-        public string createItemGroup(string prTextProj, string prFilePathClass)
-        {
-            var indexItemGroupProject = prTextProj.IndexOf("<ItemGroup>");
-            var indexEndItemGroupProject = prTextProj.LastIndexOf("</ItemGroup>");
-            var slnMyDeclaration = prTextProj.Substring(indexItemGroupProject, ((indexEndItemGroupProject + "</ItemGroup>".Count()) - indexItemGroupProject));
-            slnMyDeclaration += "\n <ItemGroup>";
-            slnMyDeclaration += $"\n   <Compile Include=\"{prFilePathClass}\" />";
-            slnMyDeclaration += "\n </ItemGroup>";
-            return slnMyDeclaration;
-        }
-
         public void createPackagesConfig(string prPathProjectFolder, string prPathTemplatePackConfig)
         {
             File.Copy(prPathTemplatePackConfig, prPathProjectFolder + "\\packages.config", true);
-        }
-        public void createNugetConfig(string prPathProjectFolder, string prPathTemplateNugetConfig)
-        {
-            File.Copy(prPathTemplateNugetConfig, prPathProjectFolder + "NuGet.config", true);
         }
 
         public void createAssemblyInfo(string prProjectGuid, string prPathProjectFolder, string prPathTemplateAssembly)

@@ -103,8 +103,7 @@ namespace EasyCode.Services
                 string attrType = this.getAttr(attr);
                 if (attr.Type == (int)ProjectAttribute.KDType.DateTime)
                     attrType = "string";
-
-                attrs.AppendLine("[DataMember]");
+                    
                 attrs.AppendLine($"public {attrType} {attr.Name} " + "{ get; set; }");
             }
 

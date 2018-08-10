@@ -2,7 +2,6 @@
 using [NAMESPACE].Domain.Entities;
 using [NAMESPACE].Domain.Interfaces.Domain.Services;
 using [NAMESPACE].Application.Interfaces;
-using [NAMESPACE]TO.Response;
 using System;
 using System.Linq;
 using System.Collections.Generic;

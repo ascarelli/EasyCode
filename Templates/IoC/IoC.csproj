@@ -97,16 +97,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IoC.cs" />
-    <Compile Include="Modules\Api[ENTITY]ApplicationModule.cs" />
-    <Compile Include="Modules\Api[ENTITY]RepositoryModule.cs" />
-    <Compile Include="Modules\Api[ENTITY]ServiceModule.cs" />
+    <Compile Include="Modules\ApiTipoCentroApplicationModule.cs" />
+    <Compile Include="Modules\ApiTipoCentroRepositoryModule.cs" />
+    <Compile Include="Modules\ApiTipoCentroServiceModule.cs" />
     <Compile Include="Modules\UnitOfWorkModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-   [REFERENCES]
+    <ProjectReference Include="..\[NAMESPACE].Application\[NAMESPACE].Application.csproj">
+      <Project>{[PROJECTGUIDAPP]}</Project>
+      <Name>[NAMESPACE].Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\[NAMESPACE].Domain\[NAMESPACE].Domain.csproj">
+      <Project>{[PROJECTGUIDDOMAIN]}</Project>
+      <Name>[NAMESPACE].Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\[NAMESPACE].Infra.EF\[NAMESPACE].Infra.EF.csproj">
+      <Project>{[PROJECTGUIDEF}</Project>
+      <Name>[NAMESPACE].Infra.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\[NAMESPACE].Infra.Repository\[NAMESPACE].Infra.Repository.csproj">
+      <Project>{[PROJECTGUIDREPOSITORY]}</Project>
+      <Name>[NAMESPACE].Infra.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
